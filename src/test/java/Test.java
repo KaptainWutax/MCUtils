@@ -10,7 +10,7 @@ public class Test {
         NBTTag nbt = NBTStream.read("plains_meeting_point_1.nbt");
         System.out.println(NBTFormatter.format(nbt));
 
-        NBTStream.write(nbt, "plains_meeting_point_1_dump.nbt");
+        NBTStream.write(nbt, "plains_meeting_point_1_dump.nbt", false);
         NBTTag dump = NBTStream.read("plains_meeting_point_1_dump.nbt");
         System.out.println(NBTFormatter.format(dump));
     }
