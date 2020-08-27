@@ -22,7 +22,10 @@ public class NBTStream {
     }
 
     public static NBTTag read(byte[] bytes) throws IOException {
-        return NBTTag.create(new ByteBuffer(new GZIPInputStream(new ByteArrayInputStream(bytes))));
+        GZIPInputStream in = new GZIPInputStream(new ByteArrayInputStream(bytes));
+        NBTTag nbt = NBTTag.create(new ByteBuffer(in));
+        in.close();
+        return nbt;
     }
 
     public static void write(NBTTag nbt, String path) throws IOException {
@@ -30,7 +33,10 @@ public class NBTStream {
     }
 
     public static void write(NBTTag nbt, File file) throws IOException {
-        nbt.write(new ByteBuffer(new GZIPOutputStream(new FileOutputStream(file))));
+        GZIPOutputStream out = new GZIPOutputStream(new FileOutputStream(file));
+        nbt.write(new ByteBuffer(out));
+        out.flush();
+        out.close();
     }
 
 }
