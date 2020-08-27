@@ -1,22 +1,35 @@
 package kaptainwutax.mcutils.nbt.tag;
 
+import kaptainwutax.mcutils.nbt.NBTType;
 import kaptainwutax.mcutils.net.ByteBuffer;
 import kaptainwutax.mcutils.net.IByteSerializable;
-import kaptainwutax.mcutils.nbt.NBTType;
 
 import java.io.IOException;
 import java.nio.ByteOrder;
 
-public abstract class NBTTag implements IByteSerializable {
+public abstract class NBTTag<T> implements IByteSerializable {
 
     private String name;
+    private T value;
+
+    public NBTTag(T value) {
+        this.setValue(value);
+    }
 
     public final String getName() {
         return this.name;
     }
 
+    public T getValue() {
+        return value;
+    }
+
     public final byte getType() {
-        return NBTType.getTypeOf(this.getClass());
+        return NBTType.getTypeOf((Class<? extends NBTTag<?>>)this.getClass());
+    }
+
+    public void setValue(T value) {
+        this.value = value;
     }
 
     @Override
@@ -36,13 +49,18 @@ public abstract class NBTTag implements IByteSerializable {
         this.writePayload(buffer);
     }
 
+
     public abstract void readPayload(ByteBuffer buffer) throws IOException;
 
     public abstract void writePayload(ByteBuffer buffer) throws IOException;
 
+    @Override
+    public String toString() {
+        return this.value.toString();
+    }
 
-    public static NBTTag create(ByteBuffer buffer) throws IOException {
-        NBTTag tag = NBTType.createEmpty(buffer.readByte());
+    public static NBTTag<?> create(ByteBuffer buffer) throws IOException {
+        NBTTag<?> tag = NBTType.createEmpty(buffer.readByte());
         tag.read(buffer);
         return tag;
     }

@@ -8,8 +8,8 @@ import java.util.function.Supplier;
 
 public class NBTType {
 
-    public static final Map<Byte, Supplier<? extends NBTTag>> REGISTRY = new HashMap<>();
-    private static final Map<Class<? extends NBTTag>, Byte> TYPE_REGISTRY = new HashMap<>();
+    public static final Map<Byte, Supplier<? extends NBTTag<?>>> REGISTRY = new HashMap<>();
+    private static final Map<Class<? extends NBTTag<?>>, Byte> TYPE_REGISTRY = new HashMap<>();
 
     public static final byte END = 0;
     public static final byte BYTE = 1;
@@ -41,7 +41,7 @@ public class NBTType {
         register(NBTLongArray.class, LONG_ARRAY, NBTLongArray::new);
     }
 
-    public static <T extends NBTTag> void register(Class<T> tagClass, int type, Supplier<T> supplier) {
+    public static <T extends NBTTag<?>> void register(Class<T> tagClass, int type, Supplier<T> supplier) {
         if(REGISTRY.containsKey((byte)type)) {
             throw new RuntimeException("Type " + type + " is already taken");
         }
@@ -50,12 +50,12 @@ public class NBTType {
         TYPE_REGISTRY.put(tagClass, (byte)type);
     }
 
-    public static byte getTypeOf(Class<? extends NBTTag> tagClass) {
+    public static byte getTypeOf(Class<? extends NBTTag<?>> tagClass) {
         return TYPE_REGISTRY.getOrDefault(tagClass, (byte)-1);
     }
 
-    public static NBTTag createEmpty(byte type) {
-        Supplier<? extends NBTTag> supplier = NBTType.REGISTRY.get(type);
+    public static NBTTag<?> createEmpty(byte type) {
+        Supplier<? extends NBTTag<?>> supplier = NBTType.REGISTRY.get(type);
 
         if(supplier == null) {
             throw new RuntimeException("Deserializing unregistered tag of type " + type);

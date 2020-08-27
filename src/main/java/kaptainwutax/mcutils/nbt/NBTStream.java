@@ -1,5 +1,6 @@
 package kaptainwutax.mcutils.nbt;
 
+import kaptainwutax.mcutils.nbt.tag.NBTCompound;
 import kaptainwutax.mcutils.nbt.tag.NBTTag;
 import kaptainwutax.mcutils.net.ByteBuffer;
 
@@ -11,15 +12,15 @@ import java.util.zip.ZipException;
 
 public class NBTStream {
 
-    public static NBTTag read(String path) throws IOException {
+    public static NBTCompound read(String path) throws IOException {
         return read(new File(path));
     }
 
-    public static NBTTag read(File file) throws IOException {
+    public static NBTCompound read(File file) throws IOException {
         return read(Files.readAllBytes(file.toPath()));
     }
 
-    public static NBTTag read(byte[] bytes) throws IOException {
+    public static NBTCompound read(byte[] bytes) throws IOException {
         InputStream in;
 
         try {
@@ -28,19 +29,23 @@ public class NBTStream {
             in = new ByteArrayInputStream(bytes);
         }
 
-        NBTTag nbt = NBTTag.create(new ByteBuffer(in));
+        NBTTag<?> tag = NBTTag.create(new ByteBuffer(in));
         in.close();
-        return nbt;
+
+        if(tag instanceof NBTCompound)return (NBTCompound)tag;
+        NBTCompound compound = new NBTCompound();
+        compound.getValue().put("", tag);
+        return compound;
     }
 
-    public static void write(NBTTag nbt, String path, boolean compressed) throws IOException {
-        write(nbt, new File(path), compressed);
+    public static void write(NBTTag<?> tag, String path, boolean compressed) throws IOException {
+        write(tag, new File(path), compressed);
     }
 
-    public static void write(NBTTag nbt, File file, boolean compressed) throws IOException {
+    public static void write(NBTTag<?> tag, File file, boolean compressed) throws IOException {
         OutputStream out = new FileOutputStream(file);
         if(compressed)out = new GZIPOutputStream(out);
-        nbt.write(new ByteBuffer(out));
+        tag.write(new ByteBuffer(out));
         out.flush();
         out.close();
     }
