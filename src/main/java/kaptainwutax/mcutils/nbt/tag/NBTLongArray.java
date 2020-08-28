@@ -21,16 +21,19 @@ public class NBTLongArray extends NBTTag<long[]> {
     }
 
     public NBTLongArray(int length) {
-        super(new long[length]);
+        this(new long[length]);
     }
 
-    @Override
-    public long[] getValue() {
+    public NBTLongArray(long[] value) {
+        super(value);
+    }
+
+    public long[] copyValue() {
         return super.getValue().clone();
     }
 
     public Stream<Long> stream() {
-        return Arrays.stream(super.getValue()).boxed();
+        return Arrays.stream(this.getValue()).boxed();
     }
 
     public Long[] toBoxed() {

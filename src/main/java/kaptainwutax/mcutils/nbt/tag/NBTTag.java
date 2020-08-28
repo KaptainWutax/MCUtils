@@ -9,7 +9,7 @@ import java.nio.ByteOrder;
 
 public abstract class NBTTag<T> implements IByteSerializable {
 
-    private String name;
+    private String name = "";
     private T value;
 
     public NBTTag(T value) {
@@ -28,27 +28,22 @@ public abstract class NBTTag<T> implements IByteSerializable {
         return NBTType.getTypeOf((Class<? extends NBTTag<?>>)this.getClass());
     }
 
-    public void setValue(T value) {
+    public NBTTag<?> setValue(T value) {
         this.value = value;
+        return this;
     }
 
     @Override
     public void read(ByteBuffer buffer) throws IOException {
-        this.name = buffer.readChars(ByteOrder.BIG_ENDIAN);
+        this.name = buffer.readASCII(ByteOrder.BIG_ENDIAN);
         this.readPayload(buffer);
     }
 
     @Override
     public void write(ByteBuffer buffer) throws IOException {
-        if(this.getType() < 0) {
-            throw new RuntimeException("Serializing unregistered tag " + this.getClass());
-        }
-
-        buffer.writeByte(this.getType());
-        buffer.writeChars(this.name, ByteOrder.BIG_ENDIAN);
-        this.writePayload(buffer);
+        if(this.getType() < 0)throw new RuntimeException("Serializing unregistered tag " + this.getClass());
+        this.writePayload(buffer.writeByte(this.getType()).writeASCII(this.name, ByteOrder.BIG_ENDIAN));
     }
-
 
     public abstract void readPayload(ByteBuffer buffer) throws IOException;
 

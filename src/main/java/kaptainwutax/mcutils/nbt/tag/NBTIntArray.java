@@ -21,16 +21,19 @@ public class NBTIntArray extends NBTTag<int[]> {
     }
 
     public NBTIntArray(int length) {
-        super(new int[length]);
+        this(new int[length]);
     }
 
-    @Override
-    public int[] getValue() {
+    public NBTIntArray(int[] value) {
+        super(value);
+    }
+
+    public int[] copyValue() {
         return super.getValue().clone();
     }
 
     public Stream<Integer> stream() {
-        return Arrays.stream(super.getValue()).boxed();
+        return Arrays.stream(this.getValue()).boxed();
     }
 
     public Integer[] toBoxed() {

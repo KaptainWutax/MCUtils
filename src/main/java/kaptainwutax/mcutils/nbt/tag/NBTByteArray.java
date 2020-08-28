@@ -21,16 +21,19 @@ public class NBTByteArray extends NBTTag<byte[]> {
     }
 
     public NBTByteArray(int length) {
-        super(new byte[length]);
+        this(new byte[length]);
     }
 
-    @Override
-    public byte[] getValue() {
+    public NBTByteArray(byte[] value) {
+        super(value);
+    }
+
+    public byte[] copyValue() {
         return super.getValue().clone();
     }
 
     public Stream<Byte> stream() {
-        return IntStream.range(0, super.getValue().length).mapToObj(i -> super.getValue()[i]);
+        return IntStream.range(0, super.getValue().length).mapToObj(i -> this.getValue()[i]);
     }
 
     public Byte[] toBoxed() {

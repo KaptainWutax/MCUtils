@@ -1,18 +1,17 @@
-import kaptainwutax.mcutils.nbt.NBTStream;
-import kaptainwutax.mcutils.nbt.tag.NBTCompound;
+import kaptainwutax.mcutils.block.Block;
+import kaptainwutax.mcutils.gen.StructureInfo;
+import kaptainwutax.mcutils.nbt.NBTIO;
+import kaptainwutax.mcutils.util.pos.BPos;
+import kaptainwutax.mcutils.version.MCVersion;
 
 import java.io.IOException;
 
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        NBTCompound nbt = NBTStream.read("plains_meeting_point_1.nbt").run(System.out::println);
-
-        NBTStream.write(nbt, "plains_meeting_point_1_dump.nbt", false);
-        NBTStream.read("plains_meeting_point_1_dump.nbt").run(System.out::println);
-
-        NBTStream.write(nbt, "plains_meeting_point_1_dump.nbt", true);
-        NBTStream.read("plains_meeting_point_1_dump.nbt").run(System.out::println);
+        StructureInfo structure = new StructureInfo(MCVersion.v1_16_2).fromTag(NBTIO.read("plains_meeting_point_1.nbt"));
+        structure.getBlockIDs().put(new BPos(0, 0, 0), structure.getPalette().indexOf(Block.COBBLESTONE));
+        NBTIO.write(structure.toTag(), "plains_meeting_point_1_modified.nbt", false);
     }
 
 

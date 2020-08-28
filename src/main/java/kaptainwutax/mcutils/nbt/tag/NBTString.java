@@ -22,12 +22,12 @@ public class NBTString extends NBTTag<String> {
 
     @Override
     public void readPayload(ByteBuffer buffer) throws IOException {
-        this.setValue(buffer.readChars(ByteOrder.BIG_ENDIAN));
+        this.setValue(buffer.readASCII(ByteOrder.BIG_ENDIAN));
     }
 
     @Override
     public void writePayload(ByteBuffer buffer) throws IOException {
-        buffer.writeChars(this.getValue(), ByteOrder.BIG_ENDIAN);
+        buffer.writeASCII(this.getValue(), ByteOrder.BIG_ENDIAN);
     }
 
 }

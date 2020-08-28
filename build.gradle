@@ -4,10 +4,11 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {url "https://jitpack.io"}
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'com.github.KaptainWutax:MathUtils:6c2d50eacad0241ff76119e6e703b70bac4b4bce'
     // https://mvnrepository.com/artifact/net.lecousin.compression/gzip
     compile group: 'net.lecousin.compression', name: 'gzip', version: '0.1.10'
 }

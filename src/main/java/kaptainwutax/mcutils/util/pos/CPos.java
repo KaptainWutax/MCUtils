@@ -1,0 +1,25 @@
+package kaptainwutax.mcutils.util.pos;
+
+import kaptainwutax.mcutils.util.math.Vec3i;
+
+public class CPos extends Vec3i {
+
+	public CPos(int x, int z) {
+		super(x, 0, z);
+	}
+
+	public BPos toBlockPos() {
+		return this.toBlockPos(0);
+	}
+
+	public BPos toBlockPos(int y) {
+		return new BPos(this.getX() << 4, y, this.getZ() << 4);
+	}
+
+	public RPos toRegionPos(int regionSize) {
+		int x = this.getX() < 0 ? this.getX() - regionSize + 1 : this.getX();
+		int z = this.getZ() < 0 ? this.getZ() - regionSize + 1 : this.getZ();
+		return new RPos(x / regionSize, z / regionSize, regionSize);
+	}
+
+}

@@ -4,6 +4,7 @@ import kaptainwutax.mcutils.nbt.NBTType;
 import kaptainwutax.mcutils.net.ByteBuffer;
 
 import java.io.IOException;
+import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -37,8 +38,10 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     @Override
     public void writePayload(ByteBuffer buffer) throws IOException {
-        for(NBTTag<?> nbt: this.getValue().values()) {
-            nbt.write(buffer);
+        for(Map.Entry<String, NBTTag<?>> entry: this.getValue().entrySet()) {
+            String name = entry.getKey();
+            NBTTag<?> tag = entry.getValue();
+            tag.writePayload(buffer.writeByte(tag.getType()).writeASCII(name, ByteOrder.BIG_ENDIAN));
         }
 
         NBTEnd.INSTANCE.write(buffer);
@@ -46,6 +49,40 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTCompound run(Consumer<NBTCompound> action) {
         action.accept(this);
+        return this;
+    }
+
+    public boolean isEmpty() {
+        return this.size() == 0;
+    }
+
+    public int size() {
+        return this.getValue().size();
+    }
+
+    public boolean contains(String key) {
+        return this.getValue().containsKey(key);
+    }
+
+    public boolean contains(String key, int type) {
+        NBTTag<?> tag = this.getTag(key);
+        return tag != null && tag.getType() == type;
+    }
+
+    //====================================================================================================//
+
+    public NBTTag<?> getTag(String key) {
+        return this.getValue().get(key);
+    }
+
+    public NBTTag<?> getTagOrDefault(String key, NBTTag<?> defaultValue) {
+        return this.getValue().getOrDefault(key, defaultValue);
+    }
+
+    public NBTCompound putTag(String key, NBTTag<?> value) {
+        if(value.getType() < 0)throw new RuntimeException("Serializing unregistered tag " + this.getClass());
+        else if(value.getType() == NBTType.END)throw new RuntimeException("Cannot write END tag to compound");
+        this.getValue().put(key, value);
         return this;
     }
 
@@ -60,6 +97,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue() != 0;
     }
 
+    public NBTCompound putBoolean(String key, boolean value) {
+        this.getValue().put(key, new NBTByte((byte)(value ? 1 : 0)));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTByte getByteTag(String key) {
@@ -68,7 +110,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTByte getByteTagOrDefault(String key, NBTByte defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.BYTE)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.BYTE)return defaultTag;
         return (NBTByte)nbt;
     }
 
@@ -81,6 +123,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putByte(String key, byte value) {
+        this.getValue().put(key, new NBTByte(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTShort getShortTag(String key) {
@@ -89,7 +136,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTShort getShortTagOrDefault(String key, NBTShort defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.SHORT)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.SHORT)return defaultTag;
         return (NBTShort)nbt;
     }
 
@@ -102,6 +149,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putShort(String key, short value) {
+        this.getValue().put(key, new NBTShort(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTInt getIntTag(String key) {
@@ -110,7 +162,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTInt getIntTagOrDefault(String key, NBTInt defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.INT)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.INT)return defaultTag;
         return (NBTInt)nbt;
     }
 
@@ -123,6 +175,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putInt(String key, int value) {
+        this.getValue().put(key, new NBTInt(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTLong getLongTag(String key) {
@@ -131,7 +188,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTLong getLongTagOrDefault(String key, NBTLong defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.LONG)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.LONG)return defaultTag;
         return (NBTLong)nbt;
     }
 
@@ -144,6 +201,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putLong(String key, long value) {
+        this.getValue().put(key, new NBTLong(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTFloat getFloatTag(String key) {
@@ -152,7 +214,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTFloat getFloatTagOrDefault(String key, NBTFloat defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.FLOAT)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.FLOAT)return defaultTag;
         return (NBTFloat)nbt;
     }
 
@@ -165,6 +227,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putFloat(String key, float value) {
+        this.getValue().put(key, new NBTFloat(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTDouble getDoubleTag(String key) {
@@ -173,7 +240,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTDouble getDoubleTagOrDefault(String key, NBTDouble defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.DOUBLE)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.DOUBLE)return defaultTag;
         return (NBTDouble)nbt;
     }
 
@@ -186,6 +253,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putDouble(String key, double value) {
+        this.getValue().put(key, new NBTDouble(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTByteArray getByteArrayTag(String key) {
@@ -194,7 +266,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTByteArray getByteArrayTagOrDefault(String key, NBTByteArray defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.BYTE_ARRAY)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.BYTE_ARRAY)return defaultTag;
         return (NBTByteArray)nbt;
     }
 
@@ -207,6 +279,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putByteArray(String key, byte[] value) {
+        this.getValue().put(key, new NBTByteArray(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTString getStringTag(String key) {
@@ -215,17 +292,22 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTString getStringTagOrDefault(String key, NBTString defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.STRING)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.STRING)return defaultTag;
         return (NBTString)nbt;
     }
 
-    public String getStringArray(String key) {
+    public String getString(String key) {
         return this.getStringTagOrDefault(key, NBTString.NULL).getValue();
     }
 
     public String getStringOrDefault(String key, String defaultValue) {
         NBTString tag = this.getStringTag(key);
         return tag == null ? defaultValue : tag.getValue();
+    }
+
+    public NBTCompound putString(String key, String value) {
+        this.getValue().put(key, new NBTString(value));
+        return this;
     }
 
     //====================================================================================================//
@@ -236,7 +318,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTList getListTagOrDefault(String key, NBTList defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.LIST)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.LIST)return defaultTag;
         return (NBTList)nbt;
     }
 
@@ -284,7 +366,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTCompound getCompoundTagOrDefault(String key, NBTCompound defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.COMPOUND)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.COMPOUND)return defaultTag;
         return (NBTCompound)nbt;
     }
 
@@ -305,7 +387,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTIntArray getIntArrayTagOrDefault(String key, NBTIntArray defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.INT_ARRAY)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.INT_ARRAY)return defaultTag;
         return (NBTIntArray)nbt;
     }
 
@@ -318,6 +400,11 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putIntArray(String key, int[] value) {
+        this.getValue().put(key, new NBTIntArray(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     public NBTLongArray getLongArrayTag(String key) {
@@ -326,7 +413,7 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
 
     public NBTLongArray getLongArrayTagOrDefault(String key, NBTLongArray defaultTag) {
         NBTTag<?> nbt = this.getValue().get(key);
-        if(nbt.getType() != NBTType.BYTE_ARRAY)return defaultTag;
+        if(nbt == null ||nbt.getType() != NBTType.BYTE_ARRAY)return defaultTag;
         return (NBTLongArray)nbt;
     }
 
@@ -339,16 +426,21 @@ public class NBTCompound extends NBTTag<Map<String, NBTTag<?>>> {
         return tag == null ? defaultValue : tag.getValue();
     }
 
+    public NBTCompound putLongArray(String key, long[] value) {
+        this.getValue().put(key, new NBTLongArray(value));
+        return this;
+    }
+
     //====================================================================================================//
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
-        Iterator<NBTTag<?>> it = this.getValue().values().iterator();
+        Iterator<Map.Entry<String, NBTTag<?>>> it = this.getValue().entrySet().iterator();
 
         while(it.hasNext()) {
-            NBTTag<?> e = it.next();
-            sb.append("\"").append(e.getName()).append("\": ").append(e);
+            Map.Entry<String, NBTTag<?>> e = it.next();
+            sb.append("\"").append(e.getKey()).append("\": ").append(e.getValue());
             sb.append(it.hasNext() ? ", " : "");
         }
 

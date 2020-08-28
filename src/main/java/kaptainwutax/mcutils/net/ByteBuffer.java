@@ -173,13 +173,13 @@ public class ByteBuffer {
         return this.writeLong(Double.doubleToLongBits(v), order);
     }
 
-    public String readChars(ByteOrder order) throws IOException {
+    public String readASCII(ByteOrder order) throws IOException {
         char[] arr = new char[this.readUnsignedShort(order)];
         for(int i = 0; i < arr.length; i++)arr[i] = (char)this.readByte();
         return new String(arr);
     }
 
-    public ByteBuffer writeChars(String v, ByteOrder order) throws IOException {
+    public ByteBuffer writeASCII(String v, ByteOrder order) throws IOException {
         this.writeShort((short)v.length(), order);
         for(int i = 0; i < v.length(); i++)this.writeByte(v.charAt(i));
         return this;

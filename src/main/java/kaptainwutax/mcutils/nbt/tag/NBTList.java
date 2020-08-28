@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -23,11 +24,15 @@ public class NBTList extends NBTTag<List<NBTTag<?>>> {
     private byte elementType;
 
     public NBTList() {
-        this(ArrayList::new);
+        this(NBTType.END);
+    }
+    public NBTList(byte elementType) {
+        this(elementType, ArrayList::new);
     }
 
-    public NBTList(Supplier<List<NBTTag<?>>> supplier) {
+    public NBTList(byte elementType, Supplier<List<NBTTag<?>>> supplier) {
         super(supplier.get());
+        this.elementType = elementType;
     }
 
     public final byte getElementType() {
@@ -60,12 +65,29 @@ public class NBTList extends NBTTag<List<NBTTag<?>>> {
         }
     }
 
+    public NBTList run(Consumer<NBTList> action) {
+        action.accept(this);
+        return this;
+    }
+
     public boolean isEmpty() {
         return this.size() == 0;
     }
 
     public int size() {
         return this.getValue().size();
+    }
+
+    public NBTList add(NBTTag<?> tag) {
+        if(tag != null) {
+            if(tag.getType() != this.elementType) {
+                throw new RuntimeException("Invalid tag of type " + tag.getType() + " for list of type " + this.elementType);
+            }
+
+            this.getValue().add(tag);
+        }
+
+        return this;
     }
 
     public boolean contains(Object value) {
