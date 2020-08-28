@@ -6,7 +6,6 @@ import kaptainwutax.mcutils.net.ByteBuffer;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipException;

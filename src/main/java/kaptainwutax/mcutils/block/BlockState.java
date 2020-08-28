@@ -2,8 +2,6 @@ package kaptainwutax.mcutils.block;
 
 import kaptainwutax.mcutils.nbt.tag.NBTCompound;
 
-import java.util.Objects;
-
 public class BlockState {
 
     private final Block block;

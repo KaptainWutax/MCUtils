@@ -55,6 +55,18 @@ public class StructureInfo {
         return this.dataVersion;
     }
 
+    public void setSize(int x, int y, int z) {
+        this.setSize(new Vec3i(x, y, z));
+    }
+
+    public void setSize(Vec3i size) {
+        this.size = size;
+    }
+
+    public void setDataVersion(int dataVersion) {
+        this.dataVersion = dataVersion;
+    }
+
     public StructureInfo fromTag(NBTCompound nbt) {
         if(nbt.contains("size", NBTType.LIST)) {
             List<Integer> coords = nbt.getListElements("size", Integer.class);

@@ -6,7 +6,6 @@ import kaptainwutax.mcutils.version.VersionMap;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class Block {
 
