@@ -535,22 +535,23 @@ public class Block {
             .add(MCVersion.v1_13, new Block(154, "furnace")));
 
     public static final VersionMap<Block> OAK_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(155, "oak_sign")));
+            .add(MCVersion.v1_13, new Block(155, "sign"))
+            .add(MCVersion.v1_14, new Block(155, "oak_sign")));
 
     public static final VersionMap<Block> SPRUCE_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(156, "spruce_sign")));
+            .add(MCVersion.v1_14, new Block(156, "spruce_sign")));
 
     public static final VersionMap<Block> BIRCH_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(157, "birch_sign")));
+            .add(MCVersion.v1_14, new Block(157, "birch_sign")));
 
     public static final VersionMap<Block> ACACIA_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(158, "acacia_sign")));
+            .add(MCVersion.v1_14, new Block(158, "acacia_sign")));
 
     public static final VersionMap<Block> JUNGLE_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(159, "jungle_sign")));
+            .add(MCVersion.v1_14, new Block(159, "jungle_sign")));
 
     public static final VersionMap<Block> DARK_OAK_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(160, "dark_oak_sign")));
+            .add(MCVersion.v1_14, new Block(160, "dark_oak_sign")));
 
     public static final VersionMap<Block> OAK_DOOR_ENTRY = register(new VersionMap<Block>()
             .add(MCVersion.v1_13, new Block(161, "oak_door")));
@@ -565,22 +566,23 @@ public class Block {
             .add(MCVersion.v1_13, new Block(164, "cobblestone_stairs")));
 
     public static final VersionMap<Block> OAK_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(165, "oak_wall_sign")));
+            .add(MCVersion.v1_13, new Block(165, "wall_sign"))
+            .add(MCVersion.v1_14, new Block(165, "oak_wall_sign")));
 
     public static final VersionMap<Block> SPRUCE_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(166, "spruce_wall_sign")));
+            .add(MCVersion.v1_14, new Block(166, "spruce_wall_sign")));
 
     public static final VersionMap<Block> BIRCH_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(167, "birch_wall_sign")));
+            .add(MCVersion.v1_14, new Block(167, "birch_wall_sign")));
 
     public static final VersionMap<Block> ACACIA_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(168, "acacia_wall_sign")));
+            .add(MCVersion.v1_14, new Block(168, "acacia_wall_sign")));
 
     public static final VersionMap<Block> JUNGLE_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(169, "jungle_wall_sign")));
+            .add(MCVersion.v1_14, new Block(169, "jungle_wall_sign")));
 
     public static final VersionMap<Block> DARK_OAK_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(170, "dark_oak_wall_sign")));
+            .add(MCVersion.v1_14, new Block(170, "dark_oak_wall_sign")));
 
     public static final VersionMap<Block> LEVER_ENTRY = register(new VersionMap<Block>()
             .add(MCVersion.v1_13, new Block(171, "lever")));
@@ -910,7 +912,7 @@ public class Block {
             .add(MCVersion.v1_13, new Block(279, "cobblestone_wall")));
 
     public static final VersionMap<Block> MOSSY_COBBLESTONE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(280, "mossy_cobblestone_wall")));
+            .add(MCVersion.v1_14, new Block(280, "mossy_cobblestone_wall")));
 
     public static final VersionMap<Block> FLOWER_POT_ENTRY = register(new VersionMap<Block>()
             .add(MCVersion.v1_13, new Block(281, "flower_pot")));
@@ -1933,13 +1935,13 @@ public class Block {
             .add(MCVersion.v1_13, new Block(620, "conduit")));
 
     public static final VersionMap<Block> BAMBOO_SAPLING_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(621, "bamboo_sapling")));
+            .add(MCVersion.v1_14, new Block(621, "bamboo_sapling")));
 
     public static final VersionMap<Block> BAMBOO_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(622, "bamboo")));
+            .add(MCVersion.v1_14, new Block(622, "bamboo")));
 
     public static final VersionMap<Block> POTTED_BAMBOO_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(623, "potted_bamboo")));
+            .add(MCVersion.v1_14, new Block(623, "potted_bamboo")));
 
     public static final VersionMap<Block> VOID_AIR_ENTRY = register(new VersionMap<Block>()
             .add(MCVersion.v1_13, new Block(624, "void_air")));
@@ -1951,412 +1953,412 @@ public class Block {
             .add(MCVersion.v1_13, new Block(626, "bubble_column")));
 
     public static final VersionMap<Block> POLISHED_GRANITE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(627, "polished_granite_stairs")));
+            .add(MCVersion.v1_14, new Block(627, "polished_granite_stairs")));
 
     public static final VersionMap<Block> SMOOTH_RED_SANDSTONE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(628, "smooth_red_sandstone_stairs")));
+            .add(MCVersion.v1_14, new Block(628, "smooth_red_sandstone_stairs")));
 
     public static final VersionMap<Block> MOSSY_STONE_BRICK_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(629, "mossy_stone_brick_stairs")));
+            .add(MCVersion.v1_14, new Block(629, "mossy_stone_brick_stairs")));
 
     public static final VersionMap<Block> POLISHED_DIORITE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(630, "polished_diorite_stairs")));
+            .add(MCVersion.v1_14, new Block(630, "polished_diorite_stairs")));
 
     public static final VersionMap<Block> MOSSY_COBBLESTONE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(631, "mossy_cobblestone_stairs")));
+            .add(MCVersion.v1_14, new Block(631, "mossy_cobblestone_stairs")));
 
     public static final VersionMap<Block> END_STONE_BRICK_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(632, "end_stone_brick_stairs")));
+            .add(MCVersion.v1_14, new Block(632, "end_stone_brick_stairs")));
 
     public static final VersionMap<Block> STONE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(633, "stone_stairs")));
+            .add(MCVersion.v1_14, new Block(633, "stone_stairs")));
 
     public static final VersionMap<Block> SMOOTH_SANDSTONE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(634, "smooth_sandstone_stairs")));
+            .add(MCVersion.v1_14, new Block(634, "smooth_sandstone_stairs")));
 
     public static final VersionMap<Block> SMOOTH_QUARTZ_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(635, "smooth_quartz_stairs")));
+            .add(MCVersion.v1_14, new Block(635, "smooth_quartz_stairs")));
 
     public static final VersionMap<Block> GRANITE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(636, "granite_stairs")));
+            .add(MCVersion.v1_14, new Block(636, "granite_stairs")));
 
     public static final VersionMap<Block> ANDESITE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(637, "andesite_stairs")));
+            .add(MCVersion.v1_14, new Block(637, "andesite_stairs")));
 
     public static final VersionMap<Block> RED_NETHER_BRICK_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(638, "red_nether_brick_stairs")));
+            .add(MCVersion.v1_14, new Block(638, "red_nether_brick_stairs")));
 
     public static final VersionMap<Block> POLISHED_ANDESITE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(639, "polished_andesite_stairs")));
+            .add(MCVersion.v1_14, new Block(639, "polished_andesite_stairs")));
 
     public static final VersionMap<Block> DIORITE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(640, "diorite_stairs")));
+            .add(MCVersion.v1_14, new Block(640, "diorite_stairs")));
 
     public static final VersionMap<Block> POLISHED_GRANITE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(641, "polished_granite_slab")));
+            .add(MCVersion.v1_14, new Block(641, "polished_granite_slab")));
 
     public static final VersionMap<Block> SMOOTH_RED_SANDSTONE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(642, "smooth_red_sandstone_slab")));
+            .add(MCVersion.v1_14, new Block(642, "smooth_red_sandstone_slab")));
 
     public static final VersionMap<Block> MOSSY_STONE_BRICK_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(643, "mossy_stone_brick_slab")));
+            .add(MCVersion.v1_14, new Block(643, "mossy_stone_brick_slab")));
 
     public static final VersionMap<Block> POLISHED_DIORITE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(644, "polished_diorite_slab")));
+            .add(MCVersion.v1_14, new Block(644, "polished_diorite_slab")));
 
     public static final VersionMap<Block> MOSSY_COBBLESTONE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(645, "mossy_cobblestone_slab")));
+            .add(MCVersion.v1_14, new Block(645, "mossy_cobblestone_slab")));
 
     public static final VersionMap<Block> END_STONE_BRICK_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(646, "end_stone_brick_slab")));
+            .add(MCVersion.v1_14, new Block(646, "end_stone_brick_slab")));
 
     public static final VersionMap<Block> SMOOTH_SANDSTONE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(647, "smooth_sandstone_slab")));
+            .add(MCVersion.v1_14, new Block(647, "smooth_sandstone_slab")));
 
     public static final VersionMap<Block> SMOOTH_QUARTZ_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(648, "smooth_quartz_slab")));
+            .add(MCVersion.v1_14, new Block(648, "smooth_quartz_slab")));
 
     public static final VersionMap<Block> GRANITE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(649, "granite_slab")));
+            .add(MCVersion.v1_14, new Block(649, "granite_slab")));
 
     public static final VersionMap<Block> ANDESITE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(650, "andesite_slab")));
+            .add(MCVersion.v1_14, new Block(650, "andesite_slab")));
 
     public static final VersionMap<Block> RED_NETHER_BRICK_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(651, "red_nether_brick_slab")));
+            .add(MCVersion.v1_14, new Block(651, "red_nether_brick_slab")));
 
     public static final VersionMap<Block> POLISHED_ANDESITE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(652, "polished_andesite_slab")));
+            .add(MCVersion.v1_14, new Block(652, "polished_andesite_slab")));
 
     public static final VersionMap<Block> DIORITE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(653, "diorite_slab")));
+            .add(MCVersion.v1_14, new Block(653, "diorite_slab")));
 
     public static final VersionMap<Block> BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(654, "brick_wall")));
+            .add(MCVersion.v1_14, new Block(654, "brick_wall")));
 
     public static final VersionMap<Block> PRISMARINE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(655, "prismarine_wall")));
+            .add(MCVersion.v1_14, new Block(655, "prismarine_wall")));
 
     public static final VersionMap<Block> RED_SANDSTONE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(656, "red_sandstone_wall")));
+            .add(MCVersion.v1_14, new Block(656, "red_sandstone_wall")));
 
     public static final VersionMap<Block> MOSSY_STONE_BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(657, "mossy_stone_brick_wall")));
+            .add(MCVersion.v1_14, new Block(657, "mossy_stone_brick_wall")));
 
     public static final VersionMap<Block> GRANITE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(658, "granite_wall")));
+            .add(MCVersion.v1_14, new Block(658, "granite_wall")));
 
     public static final VersionMap<Block> STONE_BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(659, "stone_brick_wall")));
+            .add(MCVersion.v1_14, new Block(659, "stone_brick_wall")));
 
     public static final VersionMap<Block> NETHER_BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(660, "nether_brick_wall")));
+            .add(MCVersion.v1_14, new Block(660, "nether_brick_wall")));
 
     public static final VersionMap<Block> ANDESITE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(661, "andesite_wall")));
+            .add(MCVersion.v1_14, new Block(661, "andesite_wall")));
 
     public static final VersionMap<Block> RED_NETHER_BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(662, "red_nether_brick_wall")));
+            .add(MCVersion.v1_14, new Block(662, "red_nether_brick_wall")));
 
     public static final VersionMap<Block> SANDSTONE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(663, "sandstone_wall")));
+            .add(MCVersion.v1_14, new Block(663, "sandstone_wall")));
 
     public static final VersionMap<Block> END_STONE_BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(664, "end_stone_brick_wall")));
+            .add(MCVersion.v1_14, new Block(664, "end_stone_brick_wall")));
 
     public static final VersionMap<Block> DIORITE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(665, "diorite_wall")));
+            .add(MCVersion.v1_14, new Block(665, "diorite_wall")));
 
     public static final VersionMap<Block> SCAFFOLDING_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(666, "scaffolding")));
+            .add(MCVersion.v1_14, new Block(666, "scaffolding")));
 
     public static final VersionMap<Block> LOOM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(667, "loom")));
+            .add(MCVersion.v1_14, new Block(667, "loom")));
 
     public static final VersionMap<Block> BARREL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(668, "barrel")));
+            .add(MCVersion.v1_14, new Block(668, "barrel")));
 
     public static final VersionMap<Block> SMOKER_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(669, "smoker")));
+            .add(MCVersion.v1_14, new Block(669, "smoker")));
 
     public static final VersionMap<Block> BLAST_FURNACE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(670, "blast_furnace")));
+            .add(MCVersion.v1_14, new Block(670, "blast_furnace")));
 
     public static final VersionMap<Block> CARTOGRAPHY_TABLE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(671, "cartography_table")));
+            .add(MCVersion.v1_14, new Block(671, "cartography_table")));
 
     public static final VersionMap<Block> FLETCHING_TABLE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(672, "fletching_table")));
+            .add(MCVersion.v1_14, new Block(672, "fletching_table")));
 
     public static final VersionMap<Block> GRINDSTONE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(673, "grindstone")));
+            .add(MCVersion.v1_14, new Block(673, "grindstone")));
 
     public static final VersionMap<Block> LECTERN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(674, "lectern")));
+            .add(MCVersion.v1_14, new Block(674, "lectern")));
 
     public static final VersionMap<Block> SMITHING_TABLE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(675, "smithing_table")));
+            .add(MCVersion.v1_14, new Block(675, "smithing_table")));
 
     public static final VersionMap<Block> STONECUTTER_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(676, "stonecutter")));
+            .add(MCVersion.v1_14, new Block(676, "stonecutter")));
 
     public static final VersionMap<Block> BELL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(677, "bell")));
+            .add(MCVersion.v1_14, new Block(677, "bell")));
 
     public static final VersionMap<Block> LANTERN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(678, "lantern")));
+            .add(MCVersion.v1_14, new Block(678, "lantern")));
 
     public static final VersionMap<Block> SOUL_LANTERN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(679, "soul_lantern")));
+            .add(MCVersion.v1_16, new Block(679, "soul_lantern")));
 
     public static final VersionMap<Block> CAMPFIRE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(680, "campfire")));
+            .add(MCVersion.v1_14, new Block(680, "campfire")));
 
     public static final VersionMap<Block> SOUL_CAMPFIRE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(681, "soul_campfire")));
+            .add(MCVersion.v1_16, new Block(681, "soul_campfire")));
 
     public static final VersionMap<Block> SWEET_BERRY_BUSH_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(682, "sweet_berry_bush")));
+            .add(MCVersion.v1_14, new Block(682, "sweet_berry_bush")));
 
     public static final VersionMap<Block> WARPED_STEM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(683, "warped_stem")));
+            .add(MCVersion.v1_16, new Block(683, "warped_stem")));
 
     public static final VersionMap<Block> STRIPPED_WARPED_STEM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(684, "stripped_warped_stem")));
+            .add(MCVersion.v1_16, new Block(684, "stripped_warped_stem")));
 
     public static final VersionMap<Block> WARPED_HYPHAE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(685, "warped_hyphae")));
+            .add(MCVersion.v1_16, new Block(685, "warped_hyphae")));
 
     public static final VersionMap<Block> STRIPPED_WARPED_HYPHAE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(686, "stripped_warped_hyphae")));
+            .add(MCVersion.v1_16, new Block(686, "stripped_warped_hyphae")));
 
     public static final VersionMap<Block> WARPED_NYLIUM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(687, "warped_nylium")));
+            .add(MCVersion.v1_16, new Block(687, "warped_nylium")));
 
     public static final VersionMap<Block> WARPED_FUNGUS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(688, "warped_fungus")));
+            .add(MCVersion.v1_16, new Block(688, "warped_fungus")));
 
     public static final VersionMap<Block> WARPED_WART_BLOCK_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(689, "warped_wart_block")));
+            .add(MCVersion.v1_16, new Block(689, "warped_wart_block")));
 
     public static final VersionMap<Block> WARPED_ROOTS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(690, "warped_roots")));
+            .add(MCVersion.v1_16, new Block(690, "warped_roots")));
 
     public static final VersionMap<Block> NETHER_SPROUTS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(691, "nether_sprouts")));
+            .add(MCVersion.v1_16, new Block(691, "nether_sprouts")));
 
     public static final VersionMap<Block> CRIMSON_STEM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(692, "crimson_stem")));
+            .add(MCVersion.v1_16, new Block(692, "crimson_stem")));
 
     public static final VersionMap<Block> STRIPPED_CRIMSON_STEM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(693, "stripped_crimson_stem")));
+            .add(MCVersion.v1_16, new Block(693, "stripped_crimson_stem")));
 
     public static final VersionMap<Block> CRIMSON_HYPHAE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(694, "crimson_hyphae")));
+            .add(MCVersion.v1_16, new Block(694, "crimson_hyphae")));
 
     public static final VersionMap<Block> STRIPPED_CRIMSON_HYPHAE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(695, "stripped_crimson_hyphae")));
+            .add(MCVersion.v1_16, new Block(695, "stripped_crimson_hyphae")));
 
     public static final VersionMap<Block> CRIMSON_NYLIUM_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(696, "crimson_nylium")));
+            .add(MCVersion.v1_16, new Block(696, "crimson_nylium")));
 
     public static final VersionMap<Block> CRIMSON_FUNGUS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(697, "crimson_fungus")));
+            .add(MCVersion.v1_16, new Block(697, "crimson_fungus")));
 
     public static final VersionMap<Block> SHROOMLIGHT_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(698, "shroomlight")));
+            .add(MCVersion.v1_16, new Block(698, "shroomlight")));
 
     public static final VersionMap<Block> WEEPING_VINES_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(699, "weeping_vines")));
+            .add(MCVersion.v1_16, new Block(699, "weeping_vines")));
 
     public static final VersionMap<Block> WEEPING_VINES_PLANT_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(700, "weeping_vines_plant")));
+            .add(MCVersion.v1_16, new Block(700, "weeping_vines_plant")));
 
     public static final VersionMap<Block> TWISTING_VINES_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(701, "twisting_vines")));
+            .add(MCVersion.v1_16, new Block(701, "twisting_vines")));
 
     public static final VersionMap<Block> TWISTING_VINES_PLANT_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(702, "twisting_vines_plant")));
+            .add(MCVersion.v1_16, new Block(702, "twisting_vines_plant")));
 
     public static final VersionMap<Block> CRIMSON_ROOTS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(703, "crimson_roots")));
+            .add(MCVersion.v1_16, new Block(703, "crimson_roots")));
 
     public static final VersionMap<Block> CRIMSON_PLANKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(704, "crimson_planks")));
+            .add(MCVersion.v1_16, new Block(704, "crimson_planks")));
 
     public static final VersionMap<Block> WARPED_PLANKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(705, "warped_planks")));
+            .add(MCVersion.v1_16, new Block(705, "warped_planks")));
 
     public static final VersionMap<Block> CRIMSON_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(706, "crimson_slab")));
+            .add(MCVersion.v1_16, new Block(706, "crimson_slab")));
 
     public static final VersionMap<Block> WARPED_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(707, "warped_slab")));
+            .add(MCVersion.v1_16, new Block(707, "warped_slab")));
 
     public static final VersionMap<Block> CRIMSON_PRESSURE_PLATE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(708, "crimson_pressure_plate")));
+            .add(MCVersion.v1_16, new Block(708, "crimson_pressure_plate")));
 
     public static final VersionMap<Block> WARPED_PRESSURE_PLATE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(709, "warped_pressure_plate")));
+            .add(MCVersion.v1_16, new Block(709, "warped_pressure_plate")));
 
     public static final VersionMap<Block> CRIMSON_FENCE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(710, "crimson_fence")));
+            .add(MCVersion.v1_16, new Block(710, "crimson_fence")));
 
     public static final VersionMap<Block> WARPED_FENCE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(711, "warped_fence")));
+            .add(MCVersion.v1_16, new Block(711, "warped_fence")));
 
     public static final VersionMap<Block> CRIMSON_TRAPDOOR_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(712, "crimson_trapdoor")));
+            .add(MCVersion.v1_16, new Block(712, "crimson_trapdoor")));
 
     public static final VersionMap<Block> WARPED_TRAPDOOR_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(713, "warped_trapdoor")));
+            .add(MCVersion.v1_16, new Block(713, "warped_trapdoor")));
 
     public static final VersionMap<Block> CRIMSON_FENCE_GATE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(714, "crimson_fence_gate")));
+            .add(MCVersion.v1_16, new Block(714, "crimson_fence_gate")));
 
     public static final VersionMap<Block> WARPED_FENCE_GATE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(715, "warped_fence_gate")));
+            .add(MCVersion.v1_16, new Block(715, "warped_fence_gate")));
 
     public static final VersionMap<Block> CRIMSON_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(716, "crimson_stairs")));
+            .add(MCVersion.v1_16, new Block(716, "crimson_stairs")));
 
     public static final VersionMap<Block> WARPED_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(717, "warped_stairs")));
+            .add(MCVersion.v1_16, new Block(717, "warped_stairs")));
 
     public static final VersionMap<Block> CRIMSON_BUTTON_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(718, "crimson_button")));
+            .add(MCVersion.v1_16, new Block(718, "crimson_button")));
 
     public static final VersionMap<Block> WARPED_BUTTON_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(719, "warped_button")));
+            .add(MCVersion.v1_16, new Block(719, "warped_button")));
 
     public static final VersionMap<Block> CRIMSON_DOOR_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(720, "crimson_door")));
+            .add(MCVersion.v1_16, new Block(720, "crimson_door")));
 
     public static final VersionMap<Block> WARPED_DOOR_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(721, "warped_door")));
+            .add(MCVersion.v1_16, new Block(721, "warped_door")));
 
     public static final VersionMap<Block> CRIMSON_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(722, "crimson_sign")));
+            .add(MCVersion.v1_16, new Block(722, "crimson_sign")));
 
     public static final VersionMap<Block> WARPED_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(723, "warped_sign")));
+            .add(MCVersion.v1_16, new Block(723, "warped_sign")));
 
     public static final VersionMap<Block> CRIMSON_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(724, "crimson_wall_sign")));
+            .add(MCVersion.v1_16, new Block(724, "crimson_wall_sign")));
 
     public static final VersionMap<Block> WARPED_WALL_SIGN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(725, "warped_wall_sign")));
+            .add(MCVersion.v1_16, new Block(725, "warped_wall_sign")));
 
     public static final VersionMap<Block> STRUCTURE_BLOCK_ENTRY = register(new VersionMap<Block>()
             .add(MCVersion.v1_13, new Block(726, "structure_block")));
 
     public static final VersionMap<Block> JIGSAW_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(727, "jigsaw")));
+            .add(MCVersion.v1_14, new Block(727, "jigsaw")));
 
     public static final VersionMap<Block> COMPOSTER_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(728, "composter")));
+            .add(MCVersion.v1_14, new Block(728, "composter")));
 
     public static final VersionMap<Block> TARGET_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(729, "target")));
+            .add(MCVersion.v1_15, new Block(729, "target")));
 
     public static final VersionMap<Block> BEE_NEST_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(730, "bee_nest")));
+            .add(MCVersion.v1_15, new Block(730, "bee_nest")));
 
     public static final VersionMap<Block> BEEHIVE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(731, "beehive")));
+            .add(MCVersion.v1_15, new Block(731, "beehive")));
 
     public static final VersionMap<Block> HONEY_BLOCK_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(732, "honey_block")));
+            .add(MCVersion.v1_15, new Block(732, "honey_block")));
 
     public static final VersionMap<Block> HONEYCOMB_BLOCK_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(733, "honeycomb_block")));
+            .add(MCVersion.v1_15, new Block(733, "honeycomb_block")));
 
     public static final VersionMap<Block> NETHERITE_BLOCK_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(734, "netherite_block")));
+            .add(MCVersion.v1_16, new Block(734, "netherite_block")));
 
     public static final VersionMap<Block> ANCIENT_DEBRIS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(735, "ancient_debris")));
+            .add(MCVersion.v1_16, new Block(735, "ancient_debris")));
 
     public static final VersionMap<Block> CRYING_OBSIDIAN_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(736, "crying_obsidian")));
+            .add(MCVersion.v1_16, new Block(736, "crying_obsidian")));
 
     public static final VersionMap<Block> RESPAWN_ANCHOR_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(737, "respawn_anchor")));
+            .add(MCVersion.v1_16, new Block(737, "respawn_anchor")));
 
     public static final VersionMap<Block> POTTED_CRIMSON_FUNGUS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(738, "potted_crimson_fungus")));
+            .add(MCVersion.v1_16, new Block(738, "potted_crimson_fungus")));
 
     public static final VersionMap<Block> POTTED_WARPED_FUNGUS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(739, "potted_warped_fungus")));
+            .add(MCVersion.v1_16, new Block(739, "potted_warped_fungus")));
 
     public static final VersionMap<Block> POTTED_CRIMSON_ROOTS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(740, "potted_crimson_roots")));
+            .add(MCVersion.v1_16, new Block(740, "potted_crimson_roots")));
 
     public static final VersionMap<Block> POTTED_WARPED_ROOTS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(741, "potted_warped_roots")));
+            .add(MCVersion.v1_16, new Block(741, "potted_warped_roots")));
 
     public static final VersionMap<Block> LODESTONE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(742, "lodestone")));
+            .add(MCVersion.v1_16, new Block(742, "lodestone")));
 
     public static final VersionMap<Block> BLACKSTONE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(743, "blackstone")));
+            .add(MCVersion.v1_16, new Block(743, "blackstone")));
 
     public static final VersionMap<Block> BLACKSTONE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(744, "blackstone_stairs")));
+            .add(MCVersion.v1_16, new Block(744, "blackstone_stairs")));
 
     public static final VersionMap<Block> BLACKSTONE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(745, "blackstone_wall")));
+            .add(MCVersion.v1_16, new Block(745, "blackstone_wall")));
 
     public static final VersionMap<Block> BLACKSTONE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(746, "blackstone_slab")));
+            .add(MCVersion.v1_16, new Block(746, "blackstone_slab")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(747, "polished_blackstone")));
+            .add(MCVersion.v1_16, new Block(747, "polished_blackstone")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_BRICKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(748, "polished_blackstone_bricks")));
+            .add(MCVersion.v1_16, new Block(748, "polished_blackstone_bricks")));
 
     public static final VersionMap<Block> CRACKED_POLISHED_BLACKSTONE_BRICKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(749, "cracked_polished_blackstone_bricks")));
+            .add(MCVersion.v1_16, new Block(749, "cracked_polished_blackstone_bricks")));
 
     public static final VersionMap<Block> CHISELED_POLISHED_BLACKSTONE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(750, "chiseled_polished_blackstone")));
+            .add(MCVersion.v1_16, new Block(750, "chiseled_polished_blackstone")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_BRICK_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(751, "polished_blackstone_brick_slab")));
+            .add(MCVersion.v1_16, new Block(751, "polished_blackstone_brick_slab")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_BRICK_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(752, "polished_blackstone_brick_stairs")));
+            .add(MCVersion.v1_16, new Block(752, "polished_blackstone_brick_stairs")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_BRICK_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(753, "polished_blackstone_brick_wall")));
+            .add(MCVersion.v1_16, new Block(753, "polished_blackstone_brick_wall")));
 
     public static final VersionMap<Block> GILDED_BLACKSTONE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(754, "gilded_blackstone")));
+            .add(MCVersion.v1_16, new Block(754, "gilded_blackstone")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_STAIRS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(755, "polished_blackstone_stairs")));
+            .add(MCVersion.v1_16, new Block(755, "polished_blackstone_stairs")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_SLAB_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(756, "polished_blackstone_slab")));
+            .add(MCVersion.v1_16, new Block(756, "polished_blackstone_slab")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_PRESSURE_PLATE_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(757, "polished_blackstone_pressure_plate")));
+            .add(MCVersion.v1_16, new Block(757, "polished_blackstone_pressure_plate")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_BUTTON_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(758, "polished_blackstone_button")));
+            .add(MCVersion.v1_16, new Block(758, "polished_blackstone_button")));
 
     public static final VersionMap<Block> POLISHED_BLACKSTONE_WALL_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(759, "polished_blackstone_wall")));
+            .add(MCVersion.v1_16, new Block(759, "polished_blackstone_wall")));
 
     public static final VersionMap<Block> CHISELED_NETHER_BRICKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(760, "chiseled_nether_bricks")));
+            .add(MCVersion.v1_16, new Block(760, "chiseled_nether_bricks")));
 
     public static final VersionMap<Block> CRACKED_NETHER_BRICKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(761, "cracked_nether_bricks")));
+            .add(MCVersion.v1_16, new Block(761, "cracked_nether_bricks")));
 
     public static final VersionMap<Block> QUARTZ_BRICKS_ENTRY = register(new VersionMap<Block>()
-            .add(MCVersion.v1_13, new Block(762, "quartz_bricks")));
+            .add(MCVersion.v1_16, new Block(762, "quartz_bricks")));
 
     public static final Block AIR = AIR_ENTRY.getAsOf(MCVersion.latest());
     public static final Block STONE = STONE_ENTRY.getAsOf(MCVersion.latest());

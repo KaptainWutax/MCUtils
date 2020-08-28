@@ -39,18 +39,22 @@ public class VersionMap<V> extends AbstractMap<MCVersion, V> {
     }
 
     public V getLatest() {
+        if(this.isEmpty())return null;
         return this.entries.get(this.entries.size() - 1).getValue();
     }
 
     public MCVersion getLatestVersion() {
+        if(this.isEmpty())return null;
         return this.entries.get(this.entries.size() - 1).getKey();
     }
 
     public V getOldest() {
+        if(this.isEmpty())return null;
         return this.entries.get(0).getValue();
     }
 
     public MCVersion getOldestVersion() {
+        if(this.isEmpty())return null;
         return this.entries.get(0).getKey();
     }
 
