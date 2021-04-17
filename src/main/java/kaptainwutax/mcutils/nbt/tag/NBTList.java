@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@SuppressWarnings("unused")
 public class NBTList extends NBTTag<List<NBTTag<?>>> {
 
     public static final NBTList NULL = new NBTList() {
@@ -78,6 +79,7 @@ public class NBTList extends NBTTag<List<NBTTag<?>>> {
         return this.getValue().size();
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     public NBTList add(NBTTag<?> tag) {
         if(tag != null) {
             if(tag.getType() != this.elementType) {
@@ -98,6 +100,7 @@ public class NBTList extends NBTTag<List<NBTTag<?>>> {
         return this.getValue().get(i);
     }
 
+    @SuppressWarnings("unchecked")
     public <T extends NBTTag<?>> T get(int i, Class<T> tagClass) {
         NBTTag<?> tag = this.getValue().get(i);
         return tagClass.isAssignableFrom(tag.getClass()) ? (T)tag : null;
@@ -107,6 +110,7 @@ public class NBTList extends NBTTag<List<NBTTag<?>>> {
         return this.getValue().get(i).getValue();
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getElement(int i, Class<T> elementClass) {
         NBTTag<?> tag = this.getValue().get(i);
         return elementClass.isAssignableFrom(tag.getValue().getClass()) ? (T)tag.getValue() : null;

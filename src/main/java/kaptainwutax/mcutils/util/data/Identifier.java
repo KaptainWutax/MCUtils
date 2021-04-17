@@ -1,4 +1,4 @@
-package kaptainwutax.mcutils.util;
+package kaptainwutax.mcutils.util.data;
 
 import java.util.regex.Pattern;
 

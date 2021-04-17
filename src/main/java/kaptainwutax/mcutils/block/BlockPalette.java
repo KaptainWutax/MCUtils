@@ -3,7 +3,7 @@ package kaptainwutax.mcutils.block;
 import kaptainwutax.mcutils.nbt.NBTType;
 import kaptainwutax.mcutils.nbt.tag.NBTCompound;
 import kaptainwutax.mcutils.nbt.tag.NBTList;
-import kaptainwutax.mcutils.util.Identifier;
+import kaptainwutax.mcutils.util.data.Identifier;
 import kaptainwutax.mcutils.version.MCVersion;
 
 import java.util.Arrays;

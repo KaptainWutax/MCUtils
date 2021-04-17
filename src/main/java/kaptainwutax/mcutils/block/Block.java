@@ -1,6 +1,6 @@
 package kaptainwutax.mcutils.block;
 
-import kaptainwutax.mcutils.util.Identifier;
+import kaptainwutax.mcutils.util.data.Identifier;
 import kaptainwutax.mcutils.version.MCVersion;
 import kaptainwutax.mcutils.version.VersionMap;
 

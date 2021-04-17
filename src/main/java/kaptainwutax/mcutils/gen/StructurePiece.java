@@ -2,7 +2,7 @@ package kaptainwutax.mcutils.gen;
 
 import kaptainwutax.mcutils.block.Block;
 import kaptainwutax.mcutils.block.Tile;
-import kaptainwutax.mcutils.util.Identifier;
+import kaptainwutax.mcutils.util.data.Identifier;
 import kaptainwutax.mcutils.util.math.Vec3i;
 import kaptainwutax.mcutils.util.pos.BPos;
 import kaptainwutax.seedutils.lcg.rand.JRand;

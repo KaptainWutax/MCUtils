@@ -1,6 +1,9 @@
 package kaptainwutax.mcutils.gen;
 
 import kaptainwutax.mcutils.block.Tile;
+import kaptainwutax.mcutils.util.block.BlockBox;
+import kaptainwutax.mcutils.util.block.BlockMirror;
+import kaptainwutax.mcutils.util.block.BlockRotation;
 import kaptainwutax.mcutils.util.pos.BPos;
 
 public class StructurePlacement {

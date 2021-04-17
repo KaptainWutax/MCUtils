@@ -31,6 +31,7 @@ public abstract class NBTTag<T> implements IByteSerializable {
         return value;
     }
 
+    @SuppressWarnings("unchecked")
     public final byte getType() {
         return NBTType.getTypeOf((Class<? extends NBTTag<?>>)this.getClass());
     }

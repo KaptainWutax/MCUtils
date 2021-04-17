@@ -2,6 +2,7 @@ package kaptainwutax.mcutils.util.pos;
 
 import kaptainwutax.mcutils.util.math.Vec3i;
 
+@SuppressWarnings("unused")
 public class RPos extends Vec3i {
 
 	private final int regionSize;
