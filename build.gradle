@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     implementation('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') { transitive = false }
-    implementation('com.github.KaptainWutax:SeedUtils:5f8ef824486a077bacb90fa85aa1ef0a0a75acf4') { transitive = false }
+    implementation('com.github.KaptainWutax:SeedUtils:a7d41a38fdfa9c535d8a79e4061ff3588b09d07f') { transitive = false }
     // https://mvnrepository.com/artifact/net.lecousin.compression/gzip
     implementation('net.lecousin.compression:gzip:0.1.10')
 
