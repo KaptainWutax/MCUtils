@@ -1,7 +1,7 @@
 package kaptainwutax.mcutils.util.block;
 
 import kaptainwutax.mcutils.util.math.Vec3i;
-import kaptainwutax.seedutils.lcg.rand.JRand;
+import kaptainwutax.seedutils.rand.JRand;
 
 import java.util.Arrays;
 import java.util.List;

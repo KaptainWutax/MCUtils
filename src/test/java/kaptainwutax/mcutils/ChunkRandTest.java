@@ -1,7 +1,7 @@
 package kaptainwutax.mcutils;
 
 import kaptainwutax.mcutils.rand.ChunkRand;
-import kaptainwutax.seedutils.lcg.rand.JRand;
+import kaptainwutax.seedutils.rand.JRand;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

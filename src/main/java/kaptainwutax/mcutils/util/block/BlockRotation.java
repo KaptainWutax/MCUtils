@@ -2,7 +2,7 @@ package kaptainwutax.mcutils.util.block;
 
 
 import kaptainwutax.mcutils.util.pos.BPos;
-import kaptainwutax.seedutils.lcg.rand.JRand;
+import kaptainwutax.seedutils.rand.JRand;
 
 import java.util.Arrays;
 import java.util.List;

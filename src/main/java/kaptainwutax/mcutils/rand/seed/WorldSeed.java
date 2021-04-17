@@ -3,7 +3,7 @@ package kaptainwutax.mcutils.rand.seed;
 import kaptainwutax.mathutils.util.Mth;
 import kaptainwutax.mcutils.util.data.SeedIterator;
 import kaptainwutax.mcutils.util.data.StringUnhasher;
-import kaptainwutax.seedutils.lcg.rand.JRand;
+import kaptainwutax.seedutils.rand.JRand;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

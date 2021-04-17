@@ -5,7 +5,7 @@ import kaptainwutax.mcutils.rand.ChunkRand;
 import kaptainwutax.mcutils.util.data.SeedIterator;
 import kaptainwutax.mcutils.version.MCVersion;
 import kaptainwutax.seedutils.lcg.LCG;
-import kaptainwutax.seedutils.lcg.rand.JRand;
+import kaptainwutax.seedutils.rand.JRand;
 
 
 import java.util.ArrayList;

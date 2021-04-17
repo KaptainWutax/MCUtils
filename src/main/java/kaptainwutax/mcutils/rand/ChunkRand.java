@@ -3,7 +3,7 @@ package kaptainwutax.mcutils.rand;
 import kaptainwutax.mathutils.util.Mth;
 import kaptainwutax.mcutils.rand.seed.RegionSeed;
 import kaptainwutax.seedutils.lcg.LCG;
-import kaptainwutax.seedutils.lcg.rand.JRand;
+import kaptainwutax.seedutils.rand.JRand;
 import kaptainwutax.mcutils.version.UnsupportedVersion;
 import kaptainwutax.mcutils.version.MCVersion;
 
