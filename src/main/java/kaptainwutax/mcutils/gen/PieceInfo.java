@@ -1,6 +1,8 @@
 package kaptainwutax.mcutils.gen;
 
 import kaptainwutax.mcutils.block.BlockPalette;
+import kaptainwutax.mcutils.block.BlockState;
+import kaptainwutax.mcutils.block.Tile;
 import kaptainwutax.mcutils.nbt.NBTType;
 import kaptainwutax.mcutils.nbt.tag.NBTCompound;
 import kaptainwutax.mcutils.nbt.tag.NBTInt;
@@ -10,8 +12,12 @@ import kaptainwutax.mcutils.util.pos.BPos;
 import kaptainwutax.mcutils.version.MCVersion;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class StructureInfo {
+public class PieceInfo {
+
+    public static final Comparator<Tile> TILE_SORTER = Comparator.<Tile>comparingInt(tile -> tile.getPos().getY())
+            .thenComparing(tile -> tile.getPos().getX()).thenComparing(tile -> tile.getPos().getZ());
 
     private final MCVersion version;
     protected Vec3i size;
@@ -23,7 +29,7 @@ public class StructureInfo {
 
     protected int dataVersion;
 
-    public StructureInfo(MCVersion version) {
+    public PieceInfo(MCVersion version) {
         this.version = version;
     }
 
@@ -55,6 +61,10 @@ public class StructureInfo {
         return this.dataVersion;
     }
 
+    public List<TileView> getTiles() {
+        return this.blockIDs.keySet().stream().map(pos -> new TileView(this, pos)).collect(Collectors.toList());
+    }
+
     public void setSize(int x, int y, int z) {
         this.setSize(new Vec3i(x, y, z));
     }
@@ -67,7 +77,7 @@ public class StructureInfo {
         this.dataVersion = dataVersion;
     }
 
-    public StructureInfo fromTag(NBTCompound nbt) {
+    public PieceInfo fromTag(NBTCompound nbt) {
         if(nbt.contains("size", NBTType.LIST)) {
             List<Integer> coords = nbt.getListElements("size", Integer.class);
             this.size = new Vec3i(coords.get(0), coords.get(1), coords.get(2));
@@ -134,6 +144,58 @@ public class StructureInfo {
 
             tag.putInt("DataVersion", this.dataVersion);
         });
+    }
+
+    public static class TileView extends Tile {
+        private final PieceInfo parent;
+        private final BPos pos;
+
+        public TileView(PieceInfo parent, BPos pos) {
+            super(pos, null, null);
+            this.parent = parent;
+            this.pos = pos;
+        }
+
+        @Override
+        public BPos getPos() {
+            return this.pos;
+        }
+
+        @Override
+        public BlockState getBlockState() {
+            return this.getBlockState(0);
+        }
+
+        public BlockState getBlockState(int paletteId) {
+            return this.getBlockState(this.parent.getPalettes().get(paletteId));
+        }
+
+        public BlockState getBlockState(BlockPalette palette) {
+            return palette.get(this.getState());
+        }
+
+        @Override
+        public NBTCompound getBlockEntity() {
+            return this.parent.getBlockEntities().get(this.getPos());
+        }
+
+        public int getState() {
+            return this.parent.getBlockIDs().get(this.getPos());
+        }
+
+        @Override
+        public void setBlockEntity(NBTCompound blockEntity) {
+            if(blockEntity == null)this.parent.getBlockEntities().remove(this.getPos());
+            else this.parent.getBlockEntities().put(this.getPos(), blockEntity);
+        }
+
+        public Tile copy(int paletteId) {
+            return new Tile(this.getPos(), this.getBlockState(paletteId), this.getBlockEntity());
+        }
+
+        public Tile copy(BlockPalette palette) {
+            return new Tile(this.getPos(), this.getBlockState(palette), this.getBlockEntity());
+        }
     }
     
 }

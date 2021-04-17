@@ -37,6 +37,25 @@ public class BlockPalette {
         return -1;
     }
 
+    public boolean replace(Block block1, Block block2) {
+        return this.replace(new BlockState(block1), new BlockState(block2));
+    }
+
+    public boolean replace(BlockState block1, Block block2) {
+        return this.replace(block1, new BlockState(block2));
+    }
+
+    public boolean replace(Block block1, BlockState block2) {
+        return this.replace(new BlockState(block1), block2);
+    }
+
+    public boolean replace(BlockState block1, BlockState block2) {
+        int i = this.indexOf(block1);
+        if(i < 0)return false;
+        this.palette[i] = block2;
+        return true;
+    }
+
     public BlockPalette fromTag(MCVersion version, NBTList list) {
         BlockPalette palette = new BlockPalette(new BlockState[list.size()]);
         List<NBTCompound> infos = list.getValue(NBTCompound.class);

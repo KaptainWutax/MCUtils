@@ -1,4 +1,4 @@
-import kaptainwutax.mcutils.gen.StructureInfo;
+import kaptainwutax.mcutils.gen.PieceInfo;
 import kaptainwutax.mcutils.nbt.NBTIO;
 import kaptainwutax.mcutils.nbt.tag.NBTCompound;
 import kaptainwutax.mcutils.version.MCVersion;
@@ -26,7 +26,7 @@ public class StructurePieces {
             try {
                 NBTCompound nbt = NBTIO.read(file);
                 System.out.println("========================================" + file.getName());
-                StructureInfo structure = new StructureInfo(MCVersion.v1_16_2).fromTag(nbt);
+                PieceInfo structure = new PieceInfo(MCVersion.v1_16_2).fromTag(nbt);
             } catch(IOException e) {
                 e.printStackTrace();
             }

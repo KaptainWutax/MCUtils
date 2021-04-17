@@ -4,6 +4,8 @@ import kaptainwutax.mcutils.util.math.Vec3i;
 
 public class BPos extends Vec3i {
 
+	public static final BPos ORIGIN = new BPos(0, 0, 0);
+
 	public BPos(int x, int y, int z) {
 		super(x, y, z);
 	}

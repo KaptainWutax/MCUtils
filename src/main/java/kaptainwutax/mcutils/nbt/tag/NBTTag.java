@@ -6,6 +6,7 @@ import kaptainwutax.mcutils.net.IByteSerializable;
 
 import java.io.IOException;
 import java.nio.ByteOrder;
+import java.util.Objects;
 
 public abstract class NBTTag<T> implements IByteSerializable {
 
@@ -14,6 +15,12 @@ public abstract class NBTTag<T> implements IByteSerializable {
 
     public NBTTag(T value) {
         this.setValue(value);
+    }
+
+    public static NBTTag<?> create(ByteBuffer buffer) throws IOException {
+        NBTTag<?> tag = NBTType.createEmpty(buffer.readByte());
+        tag.read(buffer);
+        return tag;
     }
 
     public final String getName() {
@@ -50,14 +57,21 @@ public abstract class NBTTag<T> implements IByteSerializable {
     public abstract void writePayload(ByteBuffer buffer) throws IOException;
 
     @Override
-    public String toString() {
-        return this.value.toString();
+    public boolean equals(Object other) {
+        if(this == other) return true;
+        if(!(other instanceof NBTTag)) return false;
+        NBTTag<?> that = (NBTTag<?>)other;
+        return this.getType() == that.getType() && this.getValue().equals(that.getValue());
     }
 
-    public static NBTTag<?> create(ByteBuffer buffer) throws IOException {
-        NBTTag<?> tag = NBTType.createEmpty(buffer.readByte());
-        tag.read(buffer);
-        return tag;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getValue());
+    }
+
+    @Override
+    public String toString() {
+        return this.value.toString();
     }
 
 }

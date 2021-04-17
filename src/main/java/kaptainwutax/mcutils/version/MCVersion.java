@@ -66,16 +66,16 @@ public enum MCVersion {
         this.subVersion = subVersion;
     }
 
+    public static MCVersion fromString(String name) {
+        return STRING_TO_VERSION.get(name);
+    }
+
     public int getRelease() {
         return this.release;
     }
 
     public int getSubVersion() {
         return this.subVersion;
-    }
-
-    public static MCVersion fromString(String name) {
-        return STRING_TO_VERSION.get(name);
     }
 
     public static MCVersion latest() {

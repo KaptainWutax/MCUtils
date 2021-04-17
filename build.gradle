@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     implementation 'com.github.KaptainWutax:MathUtils:6c2d50eacad0241ff76119e6e703b70bac4b4bce'
+    implementation 'com.github.KaptainWutax:SeedUtils:4d1715417dd6957e42ee1b1a5c43cf22e10c6df3'
     // https://mvnrepository.com/artifact/net.lecousin.compression/gzip
     compile group: 'net.lecousin.compression', name: 'gzip', version: '0.1.10'
 }
