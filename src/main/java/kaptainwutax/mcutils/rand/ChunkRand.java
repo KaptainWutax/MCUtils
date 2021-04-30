@@ -2,10 +2,10 @@ package kaptainwutax.mcutils.rand;
 
 import kaptainwutax.mathutils.util.Mth;
 import kaptainwutax.mcutils.rand.seed.RegionSeed;
+import kaptainwutax.mcutils.version.MCVersion;
+import kaptainwutax.mcutils.version.UnsupportedVersion;
 import kaptainwutax.seedutils.lcg.LCG;
 import kaptainwutax.seedutils.rand.JRand;
-import kaptainwutax.mcutils.version.UnsupportedVersion;
-import kaptainwutax.mcutils.version.MCVersion;
 
 @SuppressWarnings("unused")
 public class ChunkRand extends JRand {

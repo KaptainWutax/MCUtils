@@ -12,6 +12,52 @@ public class RPos extends Vec3i {
 		this.regionSize = regionSize;
 	}
 
+	public RPos add(CPos pos) {
+		return this.add(pos.getX(), pos.getZ());
+	}
+
+	public RPos subtract(CPos pos) {
+		return this.subtract(pos.getX(), pos.getZ());
+	}
+
+	public RPos shl(int amount) {
+		return this.shl(amount, amount);
+	}
+
+	public RPos shr(int amount) {
+		return this.shr(amount, amount);
+	}
+
+	public RPos add(int x, int z) {
+		return new RPos(this.getX() + x, this.getZ() + z, this.regionSize);
+	}
+
+	public RPos subtract(int x, int z) {
+		return new RPos(this.getX() - x, this.getZ() - z, this.regionSize);
+	}
+
+	public RPos shl(int bx, int bz) {
+		return new RPos(this.getX() << bx, this.getZ() << bz, this.regionSize);
+	}
+
+	public RPos shr(int bx, int bz) {
+		return new RPos(this.getX() >> bx, this.getZ() >> bz, this.regionSize);
+	}
+
+	/**
+	 * Recalculate the region based on the new size
+	 *
+	 * @param regionSize the size to calulcate the new base in
+	 * @return a new RPos
+	 */
+	public RPos changeRegionSize(int regionSize) {
+		int x = this.getX() * this.regionSize;
+		x = x < 0 ? x - regionSize + 1 : x;
+		int z = this.getZ() * this.regionSize;
+		z = z < 0 ? z - regionSize + 1 : z;
+		return new RPos(x / regionSize, z / regionSize, regionSize);
+	}
+
 	public int getRegionSize() {
 		return this.regionSize;
 	}

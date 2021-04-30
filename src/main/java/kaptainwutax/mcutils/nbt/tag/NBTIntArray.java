@@ -11,49 +11,52 @@ import java.util.stream.Stream;
 
 public class NBTIntArray extends NBTTag<int[]> {
 
-    public static final NBTIntArray NULL = new NBTIntArray() {
-        @Override public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
-        @Override public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
-    };
+	public static final NBTIntArray NULL = new NBTIntArray() {
+		@Override
+		public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
 
-    public NBTIntArray() {
-        this(0);
-    }
+		@Override
+		public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
+	};
 
-    public NBTIntArray(int length) {
-        this(new int[length]);
-    }
+	public NBTIntArray() {
+		this(0);
+	}
 
-    public NBTIntArray(int[] value) {
-        super(value);
-    }
+	public NBTIntArray(int length) {
+		this(new int[length]);
+	}
 
-    public int[] copyValue() {
-        return super.getValue().clone();
-    }
+	public NBTIntArray(int[] value) {
+		super(value);
+	}
 
-    public Stream<Integer> stream() {
-        return Arrays.stream(this.getValue()).boxed();
-    }
+	public int[] copyValue() {
+		return super.getValue().clone();
+	}
 
-    public Integer[] toBoxed() {
-        return this.stream().toArray(Integer[]::new);
-    }
+	public Stream<Integer> stream() {
+		return Arrays.stream(this.getValue()).boxed();
+	}
 
-    public List<Integer> toList() {
-        return this.stream().collect(Collectors.toList());
-    }
+	public Integer[] toBoxed() {
+		return this.stream().toArray(Integer[]::new);
+	}
 
-    @Override
-    public void readPayload(ByteBuffer buffer) throws IOException {
-        this.setValue(new int[buffer.readInt(ByteOrder.BIG_ENDIAN)]);
-        for(int i = 0; i < this.getValue().length; i++)this.getValue()[i] = buffer.readInt(ByteOrder.BIG_ENDIAN);
-    }
+	public List<Integer> toList() {
+		return this.stream().collect(Collectors.toList());
+	}
 
-    @Override
-    public void writePayload(ByteBuffer buffer) throws IOException {
-        buffer.writeInt(this.getValue().length, ByteOrder.BIG_ENDIAN);
-        for(int v : this.getValue())buffer.writeInt(v, ByteOrder.BIG_ENDIAN);
-    }
+	@Override
+	public void readPayload(ByteBuffer buffer) throws IOException {
+		this.setValue(new int[buffer.readInt(ByteOrder.BIG_ENDIAN)]);
+		for (int i = 0; i < this.getValue().length; i++) this.getValue()[i] = buffer.readInt(ByteOrder.BIG_ENDIAN);
+	}
+
+	@Override
+	public void writePayload(ByteBuffer buffer) throws IOException {
+		buffer.writeInt(this.getValue().length, ByteOrder.BIG_ENDIAN);
+		for (int v : this.getValue()) buffer.writeInt(v, ByteOrder.BIG_ENDIAN);
+	}
 
 }

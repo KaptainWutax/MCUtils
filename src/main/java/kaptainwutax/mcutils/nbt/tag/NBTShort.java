@@ -7,27 +7,30 @@ import java.nio.ByteOrder;
 
 public class NBTShort extends NBTTag<Short> {
 
-    public static final NBTShort NULL = new NBTShort() {
-        @Override public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
-        @Override public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
-    };
+	public static final NBTShort NULL = new NBTShort() {
+		@Override
+		public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
 
-    public NBTShort() {
-        this((short)0);
-    }
+		@Override
+		public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
+	};
 
-    public NBTShort(short value) {
-        super(value);
-    }
+	public NBTShort() {
+		this((short) 0);
+	}
 
-    @Override
-    public void readPayload(ByteBuffer buffer) throws IOException {
-        this.setValue(buffer.readShort(ByteOrder.BIG_ENDIAN));
-    }
+	public NBTShort(short value) {
+		super(value);
+	}
 
-    @Override
-    public void writePayload(ByteBuffer buffer) throws IOException {
-        buffer.writeShort(this.getValue(), ByteOrder.BIG_ENDIAN);
-    }
+	@Override
+	public void readPayload(ByteBuffer buffer) throws IOException {
+		this.setValue(buffer.readShort(ByteOrder.BIG_ENDIAN));
+	}
+
+	@Override
+	public void writePayload(ByteBuffer buffer) throws IOException {
+		buffer.writeShort(this.getValue(), ByteOrder.BIG_ENDIAN);
+	}
 
 }

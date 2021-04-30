@@ -1,12 +1,9 @@
 package kaptainwutax.mcutils.rand.seed;
 
 import kaptainwutax.mathutils.util.Mth;
-import kaptainwutax.mcutils.rand.ChunkRand;
 import kaptainwutax.mcutils.util.data.SeedIterator;
-import kaptainwutax.mcutils.version.MCVersion;
 import kaptainwutax.seedutils.lcg.LCG;
 import kaptainwutax.seedutils.rand.JRand;
-
 
 import java.util.ArrayList;
 import java.util.Arrays;

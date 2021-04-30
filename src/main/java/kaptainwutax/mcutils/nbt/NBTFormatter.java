@@ -4,8 +4,8 @@ import kaptainwutax.mcutils.nbt.tag.NBTTag;
 
 public class NBTFormatter {
 
-    public static String format(NBTTag<?> nbt) {
-        return nbt.toString(); //TODO: things...
-    }
+	public static String format(NBTTag<?> nbt) {
+		return nbt.toString(); //TODO: things...
+	}
 
 }

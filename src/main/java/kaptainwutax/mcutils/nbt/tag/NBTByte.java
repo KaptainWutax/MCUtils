@@ -6,27 +6,30 @@ import java.io.IOException;
 
 public class NBTByte extends NBTTag<Byte> {
 
-    public static final NBTByte NULL = new NBTByte() {
-        @Override public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
-        @Override public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
-    };
+	public static final NBTByte NULL = new NBTByte() {
+		@Override
+		public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
 
-    public NBTByte() {
-        this((byte)0);
-    }
+		@Override
+		public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
+	};
 
-    public NBTByte(byte value) {
-        super(value);
-    }
+	public NBTByte() {
+		this((byte) 0);
+	}
 
-    @Override
-    public void readPayload(ByteBuffer buffer) throws IOException {
-        this.setValue(buffer.readByte());
-    }
+	public NBTByte(byte value) {
+		super(value);
+	}
 
-    @Override
-    public void writePayload(ByteBuffer buffer) throws IOException {
-        buffer.writeByte(this.getValue());
-    }
+	@Override
+	public void readPayload(ByteBuffer buffer) throws IOException {
+		this.setValue(buffer.readByte());
+	}
+
+	@Override
+	public void writePayload(ByteBuffer buffer) throws IOException {
+		buffer.writeByte(this.getValue());
+	}
 
 }

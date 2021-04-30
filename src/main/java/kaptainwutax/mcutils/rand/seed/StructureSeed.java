@@ -1,7 +1,6 @@
 package kaptainwutax.mcutils.rand.seed;
 
 
-
 import kaptainwutax.mcutils.util.data.SeedIterator;
 
 import java.util.ArrayList;

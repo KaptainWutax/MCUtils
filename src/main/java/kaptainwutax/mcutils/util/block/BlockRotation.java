@@ -63,6 +63,21 @@ public enum BlockRotation {
 			}
 		}
 	}
+	public BPos rotate(BPos origin, BPos pivot) {
+		int px = pivot.getX();
+		int pz = pivot.getZ();
+		switch (this) {
+			case CLOCKWISE_90:
+				return new BPos(px + pz - origin.getZ(), origin.getY(), pz - px + origin.getX());
+			case CLOCKWISE_180:
+				return new BPos(px + px - origin.getZ(), origin.getY(), pz + pz - origin.getX());
+			case COUNTERCLOCKWISE_90:
+				return new BPos(px - pz + origin.getX(), origin.getY(), px + pz - origin.getZ());
+			default:
+				return origin;
+		}
+
+	}
 
 	public BPos getSize(BPos size) {
 		switch (this) {

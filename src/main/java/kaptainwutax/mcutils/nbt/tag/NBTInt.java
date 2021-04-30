@@ -7,27 +7,30 @@ import java.nio.ByteOrder;
 
 public class NBTInt extends NBTTag<Integer> {
 
-    public static final NBTInt NULL = new NBTInt() {
-        @Override public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
-        @Override public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
-    };
+	public static final NBTInt NULL = new NBTInt() {
+		@Override
+		public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
 
-    public NBTInt() {
-        this(0);
-    }
+		@Override
+		public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
+	};
 
-    public NBTInt(int value) {
-        super(value);
-    }
+	public NBTInt() {
+		this(0);
+	}
 
-    @Override
-    public void readPayload(ByteBuffer buffer) throws IOException {
-        this.setValue(buffer.readInt(ByteOrder.BIG_ENDIAN));
-    }
+	public NBTInt(int value) {
+		super(value);
+	}
 
-    @Override
-    public void writePayload(ByteBuffer buffer) throws IOException {
-        buffer.writeInt(this.getValue(), ByteOrder.BIG_ENDIAN);
-    }
+	@Override
+	public void readPayload(ByteBuffer buffer) throws IOException {
+		this.setValue(buffer.readInt(ByteOrder.BIG_ENDIAN));
+	}
+
+	@Override
+	public void writePayload(ByteBuffer buffer) throws IOException {
+		buffer.writeInt(this.getValue(), ByteOrder.BIG_ENDIAN);
+	}
 
 }

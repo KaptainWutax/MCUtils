@@ -77,7 +77,7 @@ public class BlockBox {
 				blockBox = new BlockBox(pivotX + pivotZ - sizedRotationX, 0, pivotZ - pivotX, pivotX + pivotZ, sizedRotationY, pivotZ - pivotX + sizedRotationZ);
 				break;
 			case CLOCKWISE_180:
-			    blockBox = new BlockBox(pivotX + pivotX - sizedRotationX, 0, pivotZ + pivotZ - sizedRotationZ, pivotX + pivotX, sizedRotationY, pivotZ + pivotZ);
+				blockBox = new BlockBox(pivotX + pivotX - sizedRotationX, 0, pivotZ + pivotZ - sizedRotationZ, pivotX + pivotX, sizedRotationY, pivotZ + pivotZ);
 				break;
 			case NONE:
 				blockBox = new BlockBox(0, 0, 0, sizedRotationX, sizedRotationY, sizedRotationZ);

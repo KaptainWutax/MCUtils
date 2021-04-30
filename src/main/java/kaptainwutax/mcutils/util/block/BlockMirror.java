@@ -2,6 +2,7 @@ package kaptainwutax.mcutils.util.block;
 
 
 import kaptainwutax.mcutils.util.math.Vec3i;
+import kaptainwutax.mcutils.util.pos.BPos;
 
 @SuppressWarnings("unused")
 public enum BlockMirror {
@@ -38,6 +39,17 @@ public enum BlockMirror {
 			return blockDirection.getOpposite();
 		} else {
 			return this == LEFT_RIGHT && blockDirection.getAxis() == BlockDirection.Axis.Z ? blockDirection.getOpposite() : blockDirection;
+		}
+	}
+
+	public BPos mirror(BPos pos) {
+		switch (this) {
+			case LEFT_RIGHT:
+				return new BPos(pos.getX(), pos.getY(), -pos.getZ());
+			case FRONT_BACK:
+				return new BPos(-pos.getX(), pos.getY(), pos.getZ());
+			default:
+				return new BPos(pos.getX(),pos.getY(),pos.getZ());
 		}
 	}
 

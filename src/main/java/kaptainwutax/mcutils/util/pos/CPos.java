@@ -14,7 +14,6 @@ public class CPos extends Vec3i {
 		super(vec3i.getX(), vec3i.getY(), vec3i.getZ());
 	}
 
-
 	public CPos add(CPos pos) {
 		return this.add(pos.getX(), pos.getZ());
 	}

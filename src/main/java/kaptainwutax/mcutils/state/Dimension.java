@@ -9,12 +9,11 @@ public enum Dimension {
 
 	OVERWORLD("overworld", 0),
 	NETHER("nether", 1),
-	END("end", -1)
-	;
+	END("end", -1);
 
+	public final int id;
 	private static final Map<String, Dimension> STRING_TO_DIMENSION = Arrays.stream(values())
 			.collect(Collectors.toMap(Dimension::toString, o -> o));
-	public final int id;
 	private final String name;
 
 	Dimension(String name, int id) {

@@ -17,130 +17,134 @@ import java.util.stream.IntStream;
 @SuppressWarnings("unused")
 public class NBTList extends NBTTag<List<NBTTag<?>>> {
 
-    public static final NBTList NULL = new NBTList() {
-        @Override public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
-        @Override public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
-    };
+	public static final NBTList NULL = new NBTList() {
+		@Override
+		public void readPayload(ByteBuffer buffer) { throw new NullPointerException(); }
 
-    private byte elementType;
+		@Override
+		public void writePayload(ByteBuffer buffer) { throw new NullPointerException(); }
+	};
 
-    public NBTList() {
-        this(NBTType.END);
-    }
-    public NBTList(byte elementType) {
-        this(elementType, ArrayList::new);
-    }
+	private byte elementType;
 
-    public NBTList(byte elementType, Supplier<List<NBTTag<?>>> supplier) {
-        super(supplier.get());
-        this.elementType = elementType;
-    }
+	public NBTList() {
+		this(NBTType.END);
+	}
 
-    public final byte getElementType() {
-        return this.elementType;
-    }
+	public NBTList(byte elementType) {
+		this(elementType, ArrayList::new);
+	}
 
-    @Override
-    public void readPayload(ByteBuffer buffer) throws IOException {
-        this.elementType = buffer.readByte();
-        int length = buffer.readInt(ByteOrder.BIG_ENDIAN);
+	public NBTList(byte elementType, Supplier<List<NBTTag<?>>> supplier) {
+		super(supplier.get());
+		this.elementType = elementType;
+	}
 
-        if(this.elementType == NBTType.END && length > 0) {
-            throw new RuntimeException("List of length " + length + " with no type");
-        }
+	public final byte getElementType() {
+		return this.elementType;
+	}
 
-        for(int i = 0; i < length; i++) {
-            NBTTag<?> nbt = NBTType.createEmpty(this.elementType);
-            nbt.readPayload(buffer);
-            this.getValue().add(nbt);
-        }
-    }
+	@Override
+	public void readPayload(ByteBuffer buffer) throws IOException {
+		this.elementType = buffer.readByte();
+		int length = buffer.readInt(ByteOrder.BIG_ENDIAN);
 
-    @Override
-    public void writePayload(ByteBuffer buffer) throws IOException {
-        buffer.writeByte(this.elementType);
-        buffer.writeInt(this.getValue().size(), ByteOrder.BIG_ENDIAN);
+		if (this.elementType == NBTType.END && length > 0) {
+			throw new RuntimeException("List of length " + length + " with no type");
+		}
 
-        for(NBTTag<?> element: this.getValue()) {
-            element.writePayload(buffer);
-        }
-    }
+		for (int i = 0; i < length; i++) {
+			NBTTag<?> nbt = NBTType.createEmpty(this.elementType);
+			nbt.readPayload(buffer);
+			this.getValue().add(nbt);
+		}
+	}
 
-    public NBTList run(Consumer<NBTList> action) {
-        action.accept(this);
-        return this;
-    }
+	@Override
+	public void writePayload(ByteBuffer buffer) throws IOException {
+		buffer.writeByte(this.elementType);
+		buffer.writeInt(this.getValue().size(), ByteOrder.BIG_ENDIAN);
 
-    public boolean isEmpty() {
-        return this.size() == 0;
-    }
+		for (NBTTag<?> element : this.getValue()) {
+			element.writePayload(buffer);
+		}
+	}
 
-    public int size() {
-        return this.getValue().size();
-    }
+	public NBTList run(Consumer<NBTList> action) {
+		action.accept(this);
+		return this;
+	}
 
-    @SuppressWarnings("UnusedReturnValue")
-    public NBTList add(NBTTag<?> tag) {
-        if(tag != null) {
-            if(tag.getType() != this.elementType) {
-                throw new RuntimeException("Invalid tag of type " + tag.getType() + " for list of type " + this.elementType);
-            }
+	public boolean isEmpty() {
+		return this.size() == 0;
+	}
 
-            this.getValue().add(tag);
-        }
+	public int size() {
+		return this.getValue().size();
+	}
 
-        return this;
-    }
+	@SuppressWarnings("UnusedReturnValue")
+	public NBTList add(NBTTag<?> tag) {
+		if (tag != null) {
+			if (tag.getType() != this.elementType) {
+				throw new RuntimeException("Invalid tag of type " + tag.getType() + " for list of type " + this.elementType);
+			}
 
-    public boolean contains(Object value) {
-        return super.getValue().stream().map(NBTTag::getValue).anyMatch(value::equals);
-    }
+			this.getValue().add(tag);
+		}
 
-    public NBTTag<?> get(int i) {
-        return this.getValue().get(i);
-    }
+		return this;
+	}
 
-    @SuppressWarnings("unchecked")
-    public <T extends NBTTag<?>> T get(int i, Class<T> tagClass) {
-        NBTTag<?> tag = this.getValue().get(i);
-        return tagClass.isAssignableFrom(tag.getClass()) ? (T)tag : null;
-    }
+	public boolean contains(Object value) {
+		return super.getValue().stream().map(NBTTag::getValue).anyMatch(value::equals);
+	}
 
-    public Object getElement(int i) {
-        return this.getValue().get(i).getValue();
-    }
+	public NBTTag<?> get(int i) {
+		return this.getValue().get(i);
+	}
 
-    @SuppressWarnings("unchecked")
-    public <T> T getElement(int i, Class<T> elementClass) {
-        NBTTag<?> tag = this.getValue().get(i);
-        return elementClass.isAssignableFrom(tag.getValue().getClass()) ? (T)tag.getValue() : null;
-    }
+	@SuppressWarnings("unchecked")
+	public <T extends NBTTag<?>> T get(int i, Class<T> tagClass) {
+		NBTTag<?> tag = this.getValue().get(i);
+		return tagClass.isAssignableFrom(tag.getClass()) ? (T) tag : null;
+	}
 
-    public <T extends NBTTag<?>> List<T> getValue(Class<T> tagClass) {
-        return IntStream.range(0, this.size()).mapToObj(i -> this.get(i, tagClass))
-                .filter(Objects::nonNull).collect(Collectors.toList());
-    }
+	public Object getElement(int i) {
+		return this.getValue().get(i).getValue();
+	}
 
-    public List<Object> getElements() {
-        return IntStream.range(0, this.size()).mapToObj(this::getElement).collect(Collectors.toList());
-    }
+	@SuppressWarnings("unchecked")
+	public <T> T getElement(int i, Class<T> elementClass) {
+		NBTTag<?> tag = this.getValue().get(i);
+		return elementClass.isAssignableFrom(tag.getValue().getClass()) ? (T) tag.getValue() : null;
+	}
 
-    public <T> List<T> getElements(Class<T> elementClass) {
-        return IntStream.range(0, this.size()).mapToObj(i -> this.getElement(i, elementClass))
-                .filter(Objects::nonNull).collect(Collectors.toList());
-    }
+	public <T extends NBTTag<?>> List<T> getValue(Class<T> tagClass) {
+		return IntStream.range(0, this.size()).mapToObj(i -> this.get(i, tagClass))
+				.filter(Objects::nonNull).collect(Collectors.toList());
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        Iterator<NBTTag<?>> it = this.getValue().iterator();
+	public List<Object> getElements() {
+		return IntStream.range(0, this.size()).mapToObj(this::getElement).collect(Collectors.toList());
+	}
 
-        while(it.hasNext()) {
-            sb.append(it.next());
-            sb.append(it.hasNext() ? ", " : "");
-        }
+	public <T> List<T> getElements(Class<T> elementClass) {
+		return IntStream.range(0, this.size()).mapToObj(i -> this.getElement(i, elementClass))
+				.filter(Objects::nonNull).collect(Collectors.toList());
+	}
 
-        return sb.append("]").toString();
-    }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("[");
+		Iterator<NBTTag<?>> it = this.getValue().iterator();
+
+		while (it.hasNext()) {
+			sb.append(it.next());
+			sb.append(it.hasNext() ? ", " : "");
+		}
+
+		return sb.append("]").toString();
+	}
 
 }

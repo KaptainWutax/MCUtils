@@ -1,12 +1,14 @@
 package kaptainwutax.mcutils.util.pos;
 
 import kaptainwutax.mcutils.util.block.BlockDirection;
+import kaptainwutax.mcutils.util.block.BlockMirror;
+import kaptainwutax.mcutils.util.block.BlockRotation;
 import kaptainwutax.mcutils.util.math.Vec3i;
 
 @SuppressWarnings("unused")
 public class BPos extends Vec3i {
 
-	public static final BPos ORIGIN= new BPos(0,0,0);
+	public static final BPos ORIGIN = new BPos(0, 0, 0);
 
 	public BPos(int x, int y, int z) {
 		super(x, y, z);
@@ -79,6 +81,10 @@ public class BPos extends Vec3i {
 		int x = this.getX() < 0 ? this.getX() - regionSize + 1 : this.getX();
 		int z = this.getZ() < 0 ? this.getZ() - regionSize + 1 : this.getZ();
 		return new RPos(x / regionSize, z / regionSize, regionSize);
+	}
+
+	public BPos transform(BlockMirror mirror, BlockRotation rotation, BPos direction) {
+		return rotation.rotate(mirror.mirror(this), direction);
 	}
 
 }

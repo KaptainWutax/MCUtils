@@ -10,6 +10,6 @@ public interface DistanceMetric {
 	DistanceMetric MANHATTAN = (x, y, z) -> Math.abs(x) + Math.abs(y) + Math.abs(z);
 	DistanceMetric CHEBYSHEV = (x, y, z) -> Mth.max(Math.abs(x), Math.abs(y), Math.abs(z));
 
- 	double getDistance(int x, int y, int z);
+	double getDistance(int x, int y, int z);
 
 }
