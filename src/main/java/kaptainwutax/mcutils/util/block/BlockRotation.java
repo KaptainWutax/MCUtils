@@ -70,9 +70,9 @@ public enum BlockRotation {
 			case CLOCKWISE_90:
 				return new BPos(px + pz - origin.getZ(), origin.getY(), pz - px + origin.getX());
 			case CLOCKWISE_180:
-				return new BPos(px + px - origin.getZ(), origin.getY(), pz + pz - origin.getX());
+				return new BPos(px + px - origin.getX(), origin.getY(), pz + pz - origin.getZ());
 			case COUNTERCLOCKWISE_90:
-				return new BPos(px - pz + origin.getX(), origin.getY(), px + pz - origin.getZ());
+				return new BPos(px - pz + origin.getZ(), origin.getY(), px + pz - origin.getX());
 			default:
 				return origin;
 		}

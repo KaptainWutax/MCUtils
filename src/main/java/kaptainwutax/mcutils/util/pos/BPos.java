@@ -83,8 +83,8 @@ public class BPos extends Vec3i {
 		return new RPos(x / regionSize, z / regionSize, regionSize);
 	}
 
-	public BPos transform(BlockMirror mirror, BlockRotation rotation, BPos direction) {
-		return rotation.rotate(mirror.mirror(this), direction);
+	public BPos transform(BlockMirror mirror, BlockRotation rotation, BPos pivot) {
+		return rotation.rotate(mirror.mirror(this), pivot);
 	}
 
 }
