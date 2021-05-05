@@ -8,13 +8,16 @@ import java.util.stream.Collectors;
 public enum Dimension {
 
 	OVERWORLD("overworld", 0),
-	NETHER("nether", 1),
-	END("end", -1);
+	NETHER("the_nether", 1),
+	END("the_end", -1);
 
-	public final int id;
+	private final int id;
+	private final String name;
 	private static final Map<String, Dimension> STRING_TO_DIMENSION = Arrays.stream(values())
 			.collect(Collectors.toMap(Dimension::toString, o -> o));
-	private final String name;
+	private static final Map<Integer, Dimension> ID_TO_DIMENSION = Arrays.stream(values())
+			.collect(Collectors.toMap(Dimension::getId, o -> o));
+
 
 	Dimension(String name, int id) {
 		this.name = name;
@@ -23,6 +26,14 @@ public enum Dimension {
 
 	public static Dimension fromString(String name) {
 		return STRING_TO_DIMENSION.get(name);
+	}
+
+	public static Dimension fromId(int id) {
+		return ID_TO_DIMENSION.get(id);
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	@Override
