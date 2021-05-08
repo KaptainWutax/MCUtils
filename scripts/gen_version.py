@@ -27,6 +27,10 @@ def download_file(url, filename):
         print(e)
 
 
+def weird_number(s):
+    i="".join([e for e in s if e.isdigit()])
+    return str(int(i))
+
 download_file("https://launchermeta.mojang.com/mc/game/version_manifest.json", "version_manifest.json")
 if not os.path.isfile('version_manifest.json'):
     exit(-1)
@@ -43,16 +47,18 @@ with open("version_manifest.json") as file:
     # last_major=major_minor(jq["latest"]["release"])[0]
     last_major=None
     for i, version in enumerate(versions):
-        if typf(version.get("type"))=="RELEASE":
+        if typf(version.get("type")) in ["RELEASE","OLD_BETA","OLD_ALPHA"] :
             vid=version.get("id")
             vtime=version.get("releaseTime")
+            if vid.startswith(("inf","c","rd")):
+                continue
             major,minor=major_minor(vid)
             string_time=convert_to_time(vtime)
             enum_string=convert_to_enum(vid)
             if last_major!=major:
                 print()
                 last_major=major
-            print(f'{enum_string}("{vid}", {major}, {minor}), //{string_time}')
+            print(f'{enum_string}("{vid}", {weird_number(major)}, {weird_number(minor)}), //{string_time}')
 
 
 print(";")
