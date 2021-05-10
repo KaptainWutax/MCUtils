@@ -221,6 +221,10 @@ public enum MCVersion {
 		return this.compareTo(a) <= 0 && this.compareTo(b) >= 0;
 	}
 
+	public boolean isBetweenExclusive(MCVersion a, MCVersion b) {
+		return this.compareTo(a) < 0 && this.compareTo(b) > 0;
+	}
+
 	public MCVersion newer() {
 		int i = this.ordinal() - 1;
 		return i < 0 ? null : values()[i];
@@ -229,6 +233,30 @@ public enum MCVersion {
 	public MCVersion older() {
 		int i = this.ordinal() + 1;
 		return i >= values().length ? null : values()[i];
+	}
+
+	public boolean isRelease(){
+		return isRelease(this);
+	}
+
+	public static boolean isRelease(MCVersion version){
+		return version.isOlderOrEqualTo(v1_0);
+	}
+
+	public boolean isAlpha(){
+		return isAlpha(this);
+	}
+
+	public static boolean isAlpha(MCVersion version){
+		return version.isBetween(va1_0_4,va1_2_6);
+	}
+
+	public boolean isBeta(){
+		return isBeta(this);
+	}
+
+	public static boolean isBeta(MCVersion version){
+		return version.isBetween(vb1_0,vb1_8_1);
 	}
 
 	@Override
