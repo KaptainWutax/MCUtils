@@ -95,7 +95,7 @@ public class BlockBox {
 	}
 
 	private static BlockBox mirrorAABB(BlockRotation rotation, int x, int z, BlockBox blockBox, BlockDirection blockDirection, BlockDirection blockDirection1) {
-		BPos moveAmount = (BPos) BPos.ZERO;
+		BPos moveAmount = BPos.ORIGIN;
 		if (rotation != BlockRotation.CLOCKWISE_90 && rotation != BlockRotation.COUNTERCLOCKWISE_90) {
 			if (rotation == BlockRotation.CLOCKWISE_180) {
 				moveAmount = moveAmount.relative(blockDirection1, x);
