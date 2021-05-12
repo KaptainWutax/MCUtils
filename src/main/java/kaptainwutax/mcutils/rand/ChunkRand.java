@@ -261,8 +261,29 @@ public class ChunkRand extends JRand {
 		return getRandom(list,this);
 	}
 
+	/**
+	 *  Return a random item inside an array
+	 * @param list the array
+	 * @param rand the random generator
+	 * @param <T> the type of variable
+	 * @return a single element chosen at random
+	 */
 	public static <T> T getRandom(T[] list,ChunkRand rand){
 		return list[rand.nextInt(list.length)];
+	}
+
+	/**
+	 * Return an int inside the range [minimum,maximum]
+	 */
+	public int getInt(int minimum, int maximum) {
+		return getInt(this,minimum,maximum);
+	}
+
+	/**
+	 * Return an int inside the range [minimum,maximum]
+	 */
+	public static int getInt(ChunkRand rand, int minimum, int maximum) {
+		return minimum >= maximum ? minimum : rand.nextInt(maximum - minimum + 1) + minimum;
 	}
 
 	public static final class Debugger extends ChunkRand {
