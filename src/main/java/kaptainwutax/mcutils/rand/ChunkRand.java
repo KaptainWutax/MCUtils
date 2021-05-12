@@ -7,6 +7,9 @@ import kaptainwutax.mcutils.version.UnsupportedVersion;
 import kaptainwutax.seedutils.lcg.LCG;
 import kaptainwutax.seedutils.rand.JRand;
 
+import java.util.Collection;
+import java.util.List;
+
 @SuppressWarnings("unused")
 public class ChunkRand extends JRand {
 
@@ -237,6 +240,30 @@ public class ChunkRand extends JRand {
 		return this.setSlimeSeed(worldSeed, chunkX, chunkZ, 987234911L, version);
 	}
 
+	/**
+	 * Return a random item inside a collection (use the underlying order)
+	 * @param list A collection type (list, linkedlist...)
+	 * @param <T> the type of variable
+	 * @return a single element chosen at random
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> T getRandom(Collection<T> list){
+		return (T)getRandom(list.toArray(),this);
+	}
+
+	/**
+	 *  Return a random item inside an array
+	 * @param list the array
+	 * @param <T> the type of variable
+	 * @return a single element chosen at random
+	 */
+	public <T> T getRandom(T[] list){
+		return getRandom(list,this);
+	}
+
+	public static <T> T getRandom(T[] list,ChunkRand rand){
+		return list[rand.nextInt(list.length)];
+	}
 
 	public static final class Debugger extends ChunkRand {
 		public JRand.Debugger debugger;
