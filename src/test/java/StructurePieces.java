@@ -15,6 +15,7 @@ public class StructurePieces {
     private static final String PATH = "src/test/java/structures/";
 
     public static void main(String[] args) throws IOException {
+    	if (true) return;
         File plainsHouses = new File(PATH + "");
 
         List<Path> files = Files.walk(plainsHouses.toPath()).collect(Collectors.toList());
