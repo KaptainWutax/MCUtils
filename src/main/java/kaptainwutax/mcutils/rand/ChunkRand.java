@@ -241,7 +241,6 @@ public class ChunkRand extends JRand {
 		return this.setSlimeSeed(worldSeed, chunkX, chunkZ, 987234911L, version);
 	}
 
-
 	/**
 	 * Seeds the randomizer to decide if a chunk should be used for block dependant processor, door, bed...
 	 *
