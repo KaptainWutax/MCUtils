@@ -1,14 +1,15 @@
 package kaptainwutax.mcutils.rand;
 
 import kaptainwutax.mathutils.util.Mth;
+import kaptainwutax.mcutils.rand.seed.PositionSeed;
 import kaptainwutax.mcutils.rand.seed.RegionSeed;
+import kaptainwutax.mcutils.util.pos.BPos;
 import kaptainwutax.mcutils.version.MCVersion;
 import kaptainwutax.mcutils.version.UnsupportedVersion;
 import kaptainwutax.seedutils.lcg.LCG;
 import kaptainwutax.seedutils.rand.JRand;
 
 import java.util.Collection;
-import java.util.List;
 
 @SuppressWarnings("unused")
 public class ChunkRand extends JRand {
@@ -240,35 +241,63 @@ public class ChunkRand extends JRand {
 		return this.setSlimeSeed(worldSeed, chunkX, chunkZ, 987234911L, version);
 	}
 
+
+	/**
+	 * Seeds the randomizer to decide if a chunk should be used for block dependant processor, door, bed...
+	 *
+	 * @param x       the block position X
+	 * @param y       the block position Y
+	 * @param z       the block position Z
+	 * @param version The Minecraft version to use by the algorithm
+	 * @return The position seed for door, bed, jigsaw processor
+	 */
+	public long setPositionSeed(int x, int y, int z, MCVersion version) {
+		long seed = PositionSeed.getPositionSeed(x, y, z);
+		this.setSeed(seed);
+		return seed & Mth.MASK_48;
+	}
+
+	/**
+	 * @param pos     the block position
+	 * @param version The Minecraft version to use by the algorithm
+	 * @return The position seed for door, bed, jigsaw processor
+	 */
+	public long setPositionSeed(BPos pos, MCVersion version) {
+		return this.setPositionSeed(pos.getX(), pos.getY(), pos.getZ(), version);
+	}
+
 	/**
 	 * Return a random item inside a collection (use the underlying order)
+	 *
 	 * @param list A collection type (list, linkedlist...)
-	 * @param <T> the type of variable
+	 * @param <T>  the type of variable
 	 * @return a single element chosen at random
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> T getRandom(Collection<T> list){
-		return (T)getRandom(list.toArray(),this);
+	public <T> T getRandom(Collection<T> list) {
+		return (T) getRandom(list.toArray(), this);
 	}
 
 	/**
-	 *  Return a random item inside an array
+	 * Return a random item inside an array
+	 *
 	 * @param list the array
-	 * @param <T> the type of variable
+	 * @param <T>  the type of variable
 	 * @return a single element chosen at random
 	 */
-	public <T> T getRandom(T[] list){
-		return getRandom(list,this);
+	public <T> T getRandom(T[] list) {
+		return getRandom(list, this);
 	}
 
 	/**
-	 *  Return a random item inside an array
+	 * Return a random item inside an array
+	 *
 	 * @param list the array
 	 * @param rand the random generator
-	 * @param <T> the type of variable
+	 * @param <T>  the type of variable
 	 * @return a single element chosen at random
 	 */
-	public static <T> T getRandom(T[] list,ChunkRand rand){
+	public static <T> T getRandom(T[] list, ChunkRand rand) {
 		return list[rand.nextInt(list.length)];
 	}
 
@@ -276,7 +305,7 @@ public class ChunkRand extends JRand {
 	 * Return an int inside the range [minimum,maximum]
 	 */
 	public int getInt(int minimum, int maximum) {
-		return getInt(this,minimum,maximum);
+		return getInt(this, minimum, maximum);
 	}
 
 	/**
