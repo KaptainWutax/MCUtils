@@ -13,13 +13,19 @@ public class Block {
 	private final int id;
 	private final Identifier name;
 	private final int meta;
-	public Block(int id, String name) {
-		this(id, name, 0);
+	private final MCVersion version;
+	public Block(MCVersion version,int id, String name) {
+		this(version,id, name, 0);
 	}
-	public Block(int id, String name, int meta) {
+	public Block(MCVersion version,int id, String name, int meta) {
+		this.version=version;
 		this.id = id;
 		this.name = new Identifier(name);
 		this.meta = meta;
+	}
+
+	public MCVersion getVersion() {
+		return version;
 	}
 
 	public int getId() {
