@@ -91,7 +91,7 @@ public class ChunkRand extends JRand {
 	 * differently, making the decoration feel more random. Even though it does a good job
 	 * at doing so, many entropy issues arise from the salt being so small and result in
 	 * weird alignments between features that have an index close apart. This method did NOT
-	 * exist pre 1.13 since all features used the same {@param populationSeed}.
+	 * exist pre 1.13 since all features used the same {@code populationSeed}.
 	 *
 	 * @param populationSeed The population seed (or at the very least its 48 lowest bits)
 	 * @param index          The index of the feature in the biome feature list
@@ -211,7 +211,7 @@ public class ChunkRand extends JRand {
 
 	/**
 	 * Seeds the randomizer to decide if a chunk should allow for slime spawns. Since it
-	 * is only used in one place, the {@param scrambler} only ever takes one value.
+	 * is only used in one place, the {@code scrambler} only ever takes one value.
 	 *
 	 * @param worldSeed The world seed (or at the very least its 48 lowest bits)
 	 * @param chunkX    The X coordinate of the chunk
