@@ -265,6 +265,16 @@ public class ChunkRand extends JRand {
 		return this.setPositionSeed(pos.getX(), pos.getY(), pos.getZ(), version);
 	}
 
+	public long setBaseStoneSeed(long worldSeed,int x,int y,int z){
+		this.setSeed(worldSeed);
+		long a=this.nextLong();
+		long b=this.nextLong();
+		long c=this.nextLong();
+		long seed = (long)x * a ^ (long)y * b ^ (long)z * z ^ worldSeed;
+		this.setSeed(seed);
+		return seed;
+	}
+
 	/**
 	 * Return a random item inside a collection (use the underlying order)
 	 *
