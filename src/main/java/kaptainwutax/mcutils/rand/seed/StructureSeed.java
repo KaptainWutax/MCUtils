@@ -3,8 +3,9 @@ package kaptainwutax.mcutils.rand.seed;
 
 import kaptainwutax.mcutils.util.data.SeedIterator;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static kaptainwutax.mcutils.util.math.NextLongReverser.getNextLongEquivalents;
 
 public final class StructureSeed {
 
@@ -30,16 +31,17 @@ public final class StructureSeed {
 	 * randomly after leaving the seed field empty.
 	 */
 	public static List<Long> toRandomWorldSeeds(long structureSeed) {
-		List<Long> randomWorldSeeds = new ArrayList<>();
-
-		//TODO: You can do better than brute-force. Smh...
-		StructureSeed.getWorldSeeds(structureSeed).forEachRemaining(worldSeed -> {
-			if (WorldSeed.isRandom(worldSeed)) {
-				randomWorldSeeds.add(worldSeed);
-			}
-		});
-
-		return randomWorldSeeds;
+//		List<Long> randomWorldSeeds = new ArrayList<>();
+//
+//		//TODO: You can do better than brute-force. Smh...
+//		StructureSeed.getWorldSeeds(structureSeed).forEachRemaining(worldSeed -> {
+//			if (WorldSeed.isRandom(worldSeed)) {
+//				randomWorldSeeds.add(worldSeed);
+//			}
+//		});
+//
+//		return randomWorldSeeds;
+		return getNextLongEquivalents(structureSeed);
 	}
 
 	/**

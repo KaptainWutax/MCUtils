@@ -14,14 +14,21 @@ public class Block {
 	private final Identifier name;
 	private final int meta;
 	private final MCVersion version;
-	public Block(MCVersion version,int id, String name) {
-		this(version,id, name, 0);
+	private final MCVersion implementedVersion;
+	public Block(MCVersion version,int id, String name,MCVersion historic) {
+		this(version,id, name, historic,0);
 	}
-	public Block(MCVersion version,int id, String name, int meta) {
+
+	public Block(MCVersion version,int id, String name,MCVersion historic, int meta) {
 		this.version=version;
 		this.id = id;
 		this.name = new Identifier(name);
+		this.implementedVersion=historic;
 		this.meta = meta;
+	}
+
+	public MCVersion getImplementedVersion(){
+		return implementedVersion;
 	}
 
 	public MCVersion getVersion() {
