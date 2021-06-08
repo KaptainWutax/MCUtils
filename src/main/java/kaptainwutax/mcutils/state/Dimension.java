@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 public enum Dimension {
 
 	OVERWORLD("overworld", 0),
-	NETHER("the_nether", 1),
-	END("the_end", -1);
+	NETHER("the_nether", -1),
+	END("the_end", 1);
 
 	private final int id;
 	private final String name;
