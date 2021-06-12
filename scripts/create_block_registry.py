@@ -1,7 +1,7 @@
 from collections import defaultdict, OrderedDict
 from pathlib import Path
 
-from future.moves import sys
+import sys
 
 p = Path(r'.').glob('blocks/*.txt')
 files = [x for x in p if x.is_file()]
@@ -54,17 +54,16 @@ import kaptainwutax.mcutils.version.MCVersion;
 import static kaptainwutax.mcutils.block.Blocks.register;
 
 @SuppressWarnings("unchecked")
-public class Function{CURRENT_FILE}{{
+public class Function{CURRENT_FILE} {{
 """)
         CURRENT_FILE+=1
-    # s = f"\tpublic static final Block {block} = " \
     s = f"\tpublic static Block {stringify(block)}() {{\n\t\treturn register(MCVersion.{implemented_version},\n\t\t\tnew Pair[] {{\n"
     for (idx, (version, id)) in enumerate(ids):
         s += f"\t\t\t\tnew Pair<>(MCVersion.{version}, {id}){',' if idx != len(ids) - 1 else ''}\n"
     s += "\t\t\t},\n\t\t\tnew Pair[] {\n"
     for (idx, (version, name)) in enumerate(names):
         s += f"\t\t\t\tnew Pair<>(MCVersion.{version}, \"{name}\"){',' if idx != len(ids) - 1 else ''}\n"
-    s += "\t\t\t}\n\t\t);\n\t}\n"
+    s += "\t\t\t}\n\t\t);\n\t}\n\n"
     FILE.write(s)
 if FILE is not None:
     FILE.write("}")

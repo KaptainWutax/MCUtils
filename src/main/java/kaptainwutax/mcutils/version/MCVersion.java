@@ -237,28 +237,28 @@ public enum MCVersion {
 		return i >= values().length ? null : values()[i];
 	}
 
-	public boolean isRelease(){
+	public boolean isRelease() {
 		return isRelease(this);
 	}
 
-	public static boolean isRelease(MCVersion version){
+	public static boolean isRelease(MCVersion version) {
 		return version.isOlderOrEqualTo(v1_0);
 	}
 
-	public boolean isAlpha(){
+	public boolean isAlpha() {
 		return isAlpha(this);
 	}
 
-	public static boolean isAlpha(MCVersion version){
-		return version.isBetween(va1_0_4,va1_2_6);
+	public static boolean isAlpha(MCVersion version) {
+		return version.isBetween(va1_0_4, va1_2_6);
 	}
 
-	public boolean isBeta(){
+	public boolean isBeta() {
 		return isBeta(this);
 	}
 
-	public static boolean isBeta(MCVersion version){
-		return version.isBetween(vb1_0,vb1_8_1);
+	public static boolean isBeta(MCVersion version) {
+		return version.isBetween(vb1_0, vb1_8_1);
 	}
 
 	@Override

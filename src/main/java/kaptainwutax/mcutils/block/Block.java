@@ -2,10 +2,6 @@ package kaptainwutax.mcutils.block;
 
 import kaptainwutax.mcutils.util.data.Identifier;
 import kaptainwutax.mcutils.version.MCVersion;
-import kaptainwutax.mcutils.version.VersionMap;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Block {
 
@@ -15,19 +11,20 @@ public class Block {
 	private final int meta;
 	private final MCVersion version;
 	private final MCVersion implementedVersion;
-	public Block(MCVersion version,int id, String name,MCVersion historic) {
-		this(version,id, name, historic,0);
+
+	public Block(MCVersion version, int id, String name, MCVersion historic) {
+		this(version, id, name, historic, 0);
 	}
 
-	public Block(MCVersion version,int id, String name,MCVersion historic, int meta) {
-		this.version=version;
+	public Block(MCVersion version, int id, String name, MCVersion historic, int meta) {
+		this.version = version;
 		this.id = id;
 		this.name = new Identifier(name);
-		this.implementedVersion=historic;
+		this.implementedVersion = historic;
 		this.meta = meta;
 	}
 
-	public MCVersion getImplementedVersion(){
+	public MCVersion getImplementedVersion() {
 		return implementedVersion;
 	}
 
@@ -64,7 +61,6 @@ public class Block {
 	public String toString() {
 		return this.getRegistryName();
 	}
-
 
 
 }

@@ -49,7 +49,7 @@ public enum BlockMirror {
 			case FRONT_BACK:
 				return new BPos(-pos.getX(), pos.getY(), pos.getZ());
 			default:
-				return new BPos(pos.getX(),pos.getY(),pos.getZ());
+				return new BPos(pos.getX(), pos.getY(), pos.getZ());
 		}
 	}
 

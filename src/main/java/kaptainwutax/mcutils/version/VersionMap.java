@@ -30,25 +30,26 @@ public class VersionMap<V> extends AbstractMap<MCVersion, V> {
 	/**
 	 * Compute a map with all the previous element from all previous version (the latest element overrides the oldest),
 	 * the V generic must be a map else this will fail
+	 *
 	 * @param version the latest version to get items from
-	 * @param <E> the key type of your map
-	 * @param <K> the value type of your map
+	 * @param <E>     the key type of your map
+	 * @param <K>     the value type of your map
 	 * @return a map with all elements until the version (latest wins)
 	 */
 	@SuppressWarnings("unchecked")
-	public <E,K> Map<E,K> getMapUntil(MCVersion version) {
-		Map<E,K> value = null;
-		ArrayList<Entry<V>> entries=new ArrayList<>(this.entries);
+	public <E, K> Map<E, K> getMapUntil(MCVersion version) {
+		Map<E, K> value = null;
+		ArrayList<Entry<V>> entries = new ArrayList<>(this.entries);
 		// very important to do it b against a (we want older to newest...)
-		entries.sort((a,b)->b.getKey().compareTo(a.getKey()));
+		entries.sort((a, b) -> b.getKey().compareTo(a.getKey()));
 		for (Entry<V> e : entries) {
 			if (e.getKey().isNewerThan(version)) continue;
-			if (value==null){
-				value = (Map<E,K>) e.getValue();
-			}else{
-				for (Map.Entry<E,K> entry:((Map<E,K>) e.getValue()).entrySet()){
+			if (value == null) {
+				value = (Map<E, K>) e.getValue();
+			} else {
+				for (Map.Entry<E, K> entry : ((Map<E, K>) e.getValue()).entrySet()) {
 					// we can override old elements since the entries are sorted from oldest to newest
-					value.put(entry.getKey(),entry.getValue());
+					value.put(entry.getKey(), entry.getValue());
 				}
 			}
 		}

@@ -5,6 +5,7 @@ import kaptainwutax.mcutils.util.data.Pair;
 import kaptainwutax.mcutils.version.MCVersion;
 import kaptainwutax.mcutils.version.VersionMap;
 
+import java.util.Comparator;
 import java.util.*;
 import java.util.stream.Collectors;
 

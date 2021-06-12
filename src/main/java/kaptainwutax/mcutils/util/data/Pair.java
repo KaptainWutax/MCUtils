@@ -23,19 +23,17 @@ public final class Pair<A, B> {
 		return this.b;
 	}
 
-	public int hashCode() {
-		return Objects.hash(this.a, this.b);
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Pair)) return false;
+		Pair<?, ?> pair = (Pair<?, ?>) o;
+		return Objects.equals(a, pair.a) && Objects.equals(b, pair.b);
 	}
 
-	public boolean equals(Object other) {
-		if (other == this) {
-			return true;
-		} else if (other != null && other.getClass() == Pair.class) {
-			Pair<?, ?> that = (Pair<?, ?>) other;
-			return Objects.equals(this.a, that.a) && Objects.equals(this.b, that.b);
-		} else {
-			return false;
-		}
+	@Override
+	public int hashCode() {
+		return Objects.hash(a, b);
 	}
 
 	public String toString() {

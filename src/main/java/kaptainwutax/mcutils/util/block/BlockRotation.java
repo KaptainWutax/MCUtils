@@ -63,6 +63,7 @@ public enum BlockRotation {
 			}
 		}
 	}
+
 	public BPos rotate(BPos origin, BPos pivot) {
 		int px = pivot.getX();
 		int pz = pivot.getZ();

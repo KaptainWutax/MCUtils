@@ -4,7 +4,6 @@ import kaptainwutax.seedutils.rand.JRand;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class NextLongReverser {
 
@@ -82,7 +81,7 @@ public class NextLongReverser {
 	public static void addNextLongEquivalents(long structureSeed, List<Long> nextLongs) {
 		//this technically does some redundant operations
 		for (long seed : getSeeds(structureSeed)) {
-			nextLongs.add(new JRand(seed ,false).nextLong());
+			nextLongs.add(new JRand(seed, false).nextLong());
 		}
 	}
 

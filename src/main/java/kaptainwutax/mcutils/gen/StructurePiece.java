@@ -1,6 +1,5 @@
 package kaptainwutax.mcutils.gen;
 
-import kaptainwutax.mcutils.block.Block;
 import kaptainwutax.mcutils.block.Blocks;
 import kaptainwutax.mcutils.block.Tile;
 import kaptainwutax.mcutils.util.data.Identifier;

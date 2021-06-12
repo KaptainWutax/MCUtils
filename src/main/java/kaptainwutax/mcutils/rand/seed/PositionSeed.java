@@ -12,7 +12,7 @@ public class PositionSeed {
 		return i >> 16;
 	}
 
-	public static long getBaseStoneSeed(long worldSeed,int x,int y,int z){
-		return INTERNAL.setBaseStoneSeed(worldSeed,x,y,z);
+	public static long getBaseStoneSeed(long worldSeed, int x, int y, int z) {
+		return INTERNAL.setBaseStoneSeed(worldSeed, x, y, z);
 	}
 }

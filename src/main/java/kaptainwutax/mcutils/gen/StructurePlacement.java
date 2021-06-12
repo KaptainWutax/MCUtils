@@ -25,7 +25,7 @@ public class StructurePlacement {
 	}
 
 	public Tile transformAndSet(Tile tile) {
-		tile.setPos(tile.getPos().transform(mirror,rotation,pivot));
+		tile.setPos(tile.getPos().transform(mirror, rotation, pivot));
 		return tile;
 	}
 
