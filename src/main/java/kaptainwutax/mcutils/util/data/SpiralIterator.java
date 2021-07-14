@@ -16,20 +16,17 @@ public class SpiralIterator<T extends Vec3i> implements Iterable<T> {
 	private final int step;
 	private final Builder<T> builder;
 
-	public SpiralIterator(T center, T radius, int step, Builder<T> builder) {
-		this.center = center;
-		this.lowerBound = radius;
-		this.upperBound = radius;
-		this.step = step;
-		this.builder = builder;
-	}
-
 	public SpiralIterator(T center, T lowerBound, T upperBound, int step, Builder<T> builder) {
 		this.center = center;
 		this.lowerBound = lowerBound;
 		this.upperBound = upperBound;
 		this.step = step;
 		this.builder = builder;
+	}
+
+	public SpiralIterator(T center, T radius, int step, Builder<T> builder) {
+		this(center, builder.build(center.getX() - radius.getX(), 0, center.getZ() - radius.getZ()),
+			builder.build(center.getX() + radius.getX(), 0, center.getZ() + radius.getZ()), step, builder);
 	}
 
 	public SpiralIterator(T center, T radius, Builder<T> builder) {
