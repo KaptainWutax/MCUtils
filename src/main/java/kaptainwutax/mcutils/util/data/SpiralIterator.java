@@ -46,7 +46,10 @@ public class SpiralIterator<T extends Vec3i> implements Iterable<T> {
 
 			@Override
 			public boolean hasNext() {
-				return x > lowerBound.getX() && x < upperBound.getX() && z > lowerBound.getZ() && z < upperBound.getZ();
+				if (j != 0) {
+					return true;
+				}
+				return x >= lowerBound.getX() && x <= upperBound.getX() && z >= lowerBound.getZ() && z <= upperBound.getZ();
 			}
 
 			@Override
