@@ -1,6 +1,7 @@
 package kaptainwutax.mcutils.util.pos;
 
 
+import kaptainwutax.mcutils.util.data.SpiralIterator;
 import kaptainwutax.mcutils.util.math.Vec3i;
 
 @SuppressWarnings("unused")
@@ -59,5 +60,19 @@ public class CPos extends Vec3i {
 		int z = this.getZ() < 0 ? this.getZ() - regionSize + 1 : this.getZ();
 		return new RPos(x / regionSize, z / regionSize, regionSize);
 	}
+
+	/**
+	 * Interface to create a CPos from (x,y,z) by discarding y
+	 * call CPos.Builder::create
+	 */
+	@FunctionalInterface
+	public interface Builder {
+		CPos create(int x, int z);
+
+		static CPos create(int x, int y, int z) {
+			return new CPos(x, z);
+		}
+	}
+
 }
 

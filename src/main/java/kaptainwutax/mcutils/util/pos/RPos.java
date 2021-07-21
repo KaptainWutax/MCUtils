@@ -1,6 +1,9 @@
 package kaptainwutax.mcutils.util.pos;
 
+import kaptainwutax.mcutils.util.data.SpiralIterator;
 import kaptainwutax.mcutils.util.math.Vec3i;
+
+import java.util.function.Function;
 
 @SuppressWarnings("unused")
 public class RPos extends Vec3i {
@@ -70,4 +73,16 @@ public class RPos extends Vec3i {
 		return new CPos(this.getX() * this.getRegionSize(), this.getZ() * this.getRegionSize());
 	}
 
+	/**
+	 * Interface to create a RPos from ((x,y,z),regionSize) by discarding y
+	 * call RPos.Builder.create(regionSize)
+	 */
+	@FunctionalInterface
+	public interface Builder {
+		RPos create(int x, int z);
+
+		static SpiralIterator.Builder<RPos> create(int regionSize) {
+			return (x,y,z)->new RPos(x,z,regionSize);
+		}
+	}
 }
